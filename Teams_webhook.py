@@ -10,7 +10,7 @@ def sendPOSTreq(headers, url = None, data = None):
   except Exception as err:
     print(err)
 
-def send_alert_to_teams(message:str='', sample_url:str=''):
+def send_alert_to_teams(message:str='', val_url:str=''):
     agent_url = 'https://hannstar.webhook.office.com/webhookb2/d04a9a4a-d535-4fc3-ab6a-0e8a69247128@4385aed4-a143-4812-8d76-480d22a7505f/IncomingWebhook/5510dced4dfc4acb9eab871b65ddd427/ac26c2d0-4ca1-4338-bf22-31bfad7cd462'
     with open('./message_template/file_link_msg_template.json', 'r', encoding='utf-8') as f:
         json_template = f.read()

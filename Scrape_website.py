@@ -461,8 +461,8 @@ class CustomerScraper:
             } for lang in self.language_codes
         }
         # 新官網上線後要拿掉
-        if self.domain_url == 'https://www.hannstar.com/':
-            about_stronghold_dict['tw']['url'] = str(about_stronghold_dict['tw']['url']).replace('/tw', '')
+        #if self.domain_url == 'https://www.hannstar.com/':
+#            about_stronghold_dict['tw']['url'] = str(about_stronghold_dict['tw']['url']).replace('/tw', '')
 
         print('\n- page about-us/stronghold -')
         # 爬取表格資料
@@ -486,12 +486,12 @@ class CustomerScraper:
 
 if __name__ == '__main__':
     '''https://www.hannstar.com(舊)'''
-    cs = CustomerScraper()
+    # cs = CustomerScraper()
     # 關於翰宇彩晶
     # cs.scrape_about_team() # 關於團隊
     # cs.scrape_about_family(list_content=True,xpath='//div[@class="mainArea noPB"]/ul/li',output_json=True) # 關於關係企業
     # cs.scrape_about_certification(web_path='/about/certification/', content_xpath='//div[@class="itemAllType itemOnlyText itemWrap"]/div', output_json=True)
-    cs.scrape_about_stronghold(content_xpath='//div[@class="strongholdBox"]', output_json=True) # 全球據點
+    # cs.scrape_about_stronghold(content_xpath='//div[@class="strongholdBox"]', output_json=True) # 全球據點
     #投資人關係
     # cs.scrape_financial_profile(web_path='/investors/article/financial-summary/') # 公司概況-財務基本資料
     # clicks = [['Financial Information', 'Financial Calendar', 'List of major shareholders'],
@@ -501,14 +501,9 @@ if __name__ == '__main__':
     '''magento'''
     new_cs = CustomerScraper(domain_url='https://magentoprd.hannstar.com')
     # 關於翰宇彩晶
-    # new_cs.scrape_about_team() # 關於團隊
-    # new_cs.scrape_about_family(list_content=True,xpath='//div[@class="Graphics3Content"]/div',output_json=True) # 關於關係企業
-    # new_cs.scrape_about_certification(content_xpath='//div[@class="D360TemplatesModuleBlock"]', output_json=True)
-    new_cs.scrape_about_stronghold(content_xpath='//div[@class="AboutStrongholdBlock"]', output_json=True)
+    new_cs.scrape_about_team() # 關於團隊
+    new_cs.scrape_about_family(list_content=True,xpath='//div[@class="Graphics3Content"]/div',output_json=True) # 關於關係企業
+    new_cs.scrape_about_certification(content_xpath='//div[@class="D360TemplatesModuleBlock"]', output_json=True) # 關於認證
+    new_cs.scrape_about_stronghold(content_xpath='//div[@class="AboutStrongholdBlock"]', output_json=True) # 關於全球據點
     # 投資人關係
     # new_cs.scrape_financial_profile() # 公司概況-財務基本資料
-    # new_cs.scrape_click_pages(base_url='https://www.hannstar.com/investors/article/financial-summary/Financial-Calendar/',
-    #                           click_list=['財務基本資料','主要股東名單'])
-    clicks = [['Financial Information', 'Financial Calendar', 'List of major shareholders'],
-              ['財務基本資料', '營運報告行事曆', '主要股東名單'], ['財務基本資料', '营运报告行事历', '主要股东名单']]
-    # new_cs.scrape_investors_summary(click_list=clicks)

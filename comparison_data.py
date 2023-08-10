@@ -1,5 +1,6 @@
 import json
 import logging
+from Teams_webhook import send_alert_to_teams
 
 class Data_Verification:
     def __init__(self, std_sample, verify_data):

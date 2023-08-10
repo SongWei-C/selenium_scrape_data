@@ -16,21 +16,23 @@ def send_alert_to_teams(message:str='', val_url:str=''):
         json_template = f.read()
         json_body = json_template
 
-        print('---------------------------------------------------')
-        print(json_body)
-        json_headers = {
-            'Content-Type': 'application/json',
-        }
+    message = message.replace('\n', '</br>')
+    json_body = json_body.replace('{{website_url}}', val_url)
+    json_body = json_body.replace('{{message}}', message)
+    print('---------------------------------------------------')
+    # print(json_body)
+    json_headers = {
+        'Content-Type': 'application/json',
+    }
 
+    json_body = json.loads(json_body)
 
-        json_body = json.loads(json_body)
-
-        json_body = json.dumps(json_body, indent = 4)
-        response = sendPOSTreq(headers=json_headers, data=json_body, url=agent_url)
-        print(response)
+    json_body = json.dumps(json_body, indent = 4)
+    response = sendPOSTreq(headers=json_headers, data=json_body, url=agent_url)
+    print(response)
 
 
 
 if __name__ == '__main__':
-    send_alert_to_teams()
+    send_alert_to_teams(message='###testsagshascascaskcjaksckaskajcskjckasjck\njaskcjaksjcksckacak', val_url='https://test.com')
 

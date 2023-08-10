@@ -3,22 +3,27 @@ from selenium.webdriver.common.by import By
 from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options
+from bs4 import BeautifulSoup
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
 import time
-import random
-from multiprocessing.pool import ThreadPool as Pool
+from webdriver_manager.chrome import ChromeDriverManager
+# from multiprocessing.pool import ThreadPool as Pool
 import json
 
 class CustomerScraper:
     """Scrape the website url by customer name"""
-    # service = Service('../driver/chromedriver.exe')
     ua = UserAgent()
+    chromedriver_path = ChromeDriverManager(version="114.0.5735.16").install()
+    service = Service(executable_path=chromedriver_path)
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
     def __init__(self, domain_url:str='https://www.hannstar.com', language_code:list[str] = ['en', 'tw', 'cn']) -> None:
         """Active Chrome Drivers(.exe)"""
-        self.options = uc.ChromeOptions()
+        self.options = Options()
+        # self.options = uc.ChromeOptions()
         self.options.add_argument('--headless')
         self.options.add_argument(f'user-agent={self.ua.random}')
         # self.options.add_argument(f'user-agent={self.user_agent}')
@@ -26,10 +31,11 @@ class CustomerScraper:
         self.options.add_argument("--disable-popup-blocking")
         # self.options.add_argument('--lang=en')
         print('init chrome driver...')
-        self.driver = uc.Chrome(
-            # service=self.service,
-            options=self.options
-        )
+        self.driver = webdriver.Chrome(
+            service=self.service,
+            options=self.options)
+        # self.driver = uc.Chrome(options=self.options)
+        self.driver.maximize_window()
         print('Complete !\n')
         if domain_url[-1] != '/':
             domain_url += '/'
@@ -60,8 +66,7 @@ class CustomerScraper:
 
         # 輸出為JSON file
         if output_json:
-            file_path = "./scrape_data/previous_website_financial_profile.json" \
-                if self.domain_url == 'https://www.hannstar.com/' else './scrape_data/magento_financial_profile.json'
+            file_path = "./scrape_data/" + self.domain_url.replace('/', '').replace('https:', '') + "_financial_profile.json"
             with open(file_path, "w") as final:
                 json.dump(financial_profile_dict, final, indent=4)
 
@@ -93,7 +98,7 @@ class CustomerScraper:
                                 continue
                             else:
                                 for th in ths:
-                                    tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
+                                    tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
                                     print(th.text)
                                 table_dict['thead'].append(tr)
                                 print('------------------')
@@ -121,7 +126,7 @@ class CustomerScraper:
                                     tr['th'] = None
                                 else:
                                     for th in ths:
-                                        tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
+                                        tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
                                         print(th.text)
                             except NoSuchElementException:
                                 print('Not find th')
@@ -135,7 +140,7 @@ class CustomerScraper:
 
                             else:
                                 for td in tds:
-                                    tr['td'].append(str(td.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
+                                    tr['td'].append(str(td.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
                                     print(td.text)
 
                             if tr['th'] == None and tr['td'] == None:
@@ -201,8 +206,8 @@ class CustomerScraper:
             } for lang in self.language_codes
         }
         # 新官網上線後要拿掉
-        if self.domain_url == 'https://www.hannstar.com/':
-            investors_summary_dict['tw']['url'] = str(investors_summary_dict['tw']['url']).replace('/tw', '')
+        # if self.domain_url == 'https://www.hannstar.com/':
+        #     investors_summary_dict['tw']['url'] = str(investors_summary_dict['tw']['url']).replace('/tw', '')
 
         # 加上子頁
         investors_summary_dict['tw']['click_list'] = ['財務基本資料', '營運報告行事曆', '主要股東名單']
@@ -226,6 +231,11 @@ class CustomerScraper:
                 if key != 'tw':
                     self.driver.get(url)
                     time.sleep(0.5)
+
+                # ele = WebDriverWait(self.driver, 10).until(
+                #     EC.presence_of_element_located((By.XPATH, '//table'))
+                # )
+
                 tables = self.driver.find_elements(
                     By.XPATH, '//table'
                 )
@@ -250,8 +260,9 @@ class CustomerScraper:
                                 continue
                             else:
                                 for th in ths:
-                                    tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
-                                    print(th.text)
+                                    soup = BeautifulSoup(th.get_attribute("innerHTML"), 'html.parser')
+                                    tr['th'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                    print(soup.text)
                                 table_dict['thead'].append(tr)
                                 print('------------------')
                     except NoSuchElementException as e:
@@ -278,8 +289,9 @@ class CustomerScraper:
                                     tr['th'] = None
                                 else:
                                     for th in ths:
-                                        tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
-                                        print(th.text)
+                                        soup = BeautifulSoup(th.get_attribute("innerHTML"), 'html.parser')
+                                        tr['th'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                        print(soup.text)
                             except NoSuchElementException:
                                 print('Not find th')
                                 tr['th'] = None
@@ -292,8 +304,9 @@ class CustomerScraper:
 
                             else:
                                 for td in tds:
-                                    tr['td'].append(str(td.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
-                                    print(td.text)
+                                    soup = BeautifulSoup(td.get_attribute("innerHTML"), 'html.parser')
+                                    tr['td'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                    print(soup.text)
 
                             if tr['th'] == None and tr['td'] == None:
                                 continue
@@ -340,9 +353,9 @@ class CustomerScraper:
                         idx_content = content.find_element(
                             By.XPATH, xpath+'['+str(i+1)+']'
                         )
-                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
-                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '')!= '':
-                            element['content'].append(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
+                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '')!= '':
+                            element['content'].append(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
                     if element['content'] == []:
                         element['content'] = None
                 else:
@@ -354,9 +367,9 @@ class CustomerScraper:
                         idx_content = content.find_element(
                             By.XPATH, xpath + '[' + str(i + 1) + ']'
                         )
-                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', ''))
-                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '') != '':
-                            text += str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '')
+                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '') != '':
+                            text += str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '')
                     if text != '':
                         element['content']= text
                     else:
@@ -374,9 +387,6 @@ class CustomerScraper:
                 'url': self.domain_url + lang + web_path
             } for lang in self.language_codes
         }
-        # 新官網上線後要拿掉
-        if self.domain_url == 'https://www.hannstar.com/':
-            about_team_dict['tw']['url'] = str(about_team_dict['tw']['url']).replace('/tw', '')
 
         print('\n- page about-us/team -')
         # 爬取表格資料
@@ -390,10 +400,10 @@ class CustomerScraper:
 
         # 輸出為JSON file
         if output_json:
-            file_path = "./scrape_data/previous_website_about_us_team.json" \
-                if self.domain_url == 'https://www.hannstar.com/' else './scrape_data/magento_about_us_team.json'
+            file_path = "./scrape_data/" + self.domain_url.replace('/', '').replace('https:', '') + "_about_team.json"
             with open(file_path, "w") as final:
                 json.dump(about_team_dict, final, indent=4)
+
 
     def scrape_about_family(self, list_content:bool, web_path:str='/about/family', xpath:str='', output_json:bool = True) -> None:
         # 會直接將爬蟲存成類別變數(Dict)
@@ -403,9 +413,9 @@ class CustomerScraper:
                 'url': self.domain_url + lang + web_path
             } for lang in self.language_codes
         }
-        # 新官網上線後要拿掉
-        if self.domain_url == 'https://www.hannstar.com/':
-            about_family_dict['tw']['url'] = str(about_family_dict['tw']['url']).replace('/tw', '')
+        # # 新官網上線後要拿掉
+        # if self.domain_url == 'https://www.hannstar.com/':
+        #     about_family_dict['tw']['url'] = str(about_family_dict['tw']['url']).replace('/tw', '')
 
         print('\n- page about-us/family -')
         # 爬取表格資料
@@ -419,10 +429,10 @@ class CustomerScraper:
 
         # 輸出為JSON file
         if output_json:
-            file_path = "./scrape_data/previous_website_about_family.json" \
-                if self.domain_url == 'https://www.hannstar.com/' else './scrape_data/magento_about_family.json'
+            file_path = "./scrape_data/" + self.domain_url.replace('/', '').replace('https:', '') + "_about_family.json"
             with open(file_path, "w") as final:
                 json.dump(about_family_dict, final, indent=4)
+
 
     def scrape_about_certification(self,content_xpath:str, web_path:str='/about/certification', output_json:bool=True):
         # 會直接將爬蟲存成類別變數(Dict)
@@ -432,9 +442,9 @@ class CustomerScraper:
                 'url': self.domain_url + lang + web_path
             } for lang in self.language_codes
         }
-        # 新官網上線後要拿掉
-        if self.domain_url == 'https://www.hannstar.com/':
-            about_certification_dict['tw']['url'] = str(about_certification_dict['tw']['url']).replace('/tw', '')
+        # # 新官網上線後要拿掉
+        # if self.domain_url == 'https://www.hannstar.com/':
+        #     about_certification_dict['tw']['url'] = str(about_certification_dict['tw']['url']).replace('/tw', '')
 
         print('\n- page about-us/certification -')
         # 爬取表格資料
@@ -447,10 +457,10 @@ class CustomerScraper:
 
         # 輸出為JSON file
         if output_json:
-            file_path = "./scrape_data/previous_website_about_certification.json" \
-                if self.domain_url == 'https://www.hannstar.com/' else './scrape_data/magento_about_certification.json'
+            file_path = "./scrape_data/" + self.domain_url.replace('/', '').replace('https:', '') + "_about_certification.json"
             with open(file_path, "w") as final:
                 json.dump(about_certification_dict, final, indent=4)
+
 
     def scrape_about_stronghold(self,content_xpath:str, web_path:str='/about/stronghold', output_json:bool=True):
         # 會直接將爬蟲存成類別變數(Dict)
@@ -475,8 +485,7 @@ class CustomerScraper:
 
         # 輸出為JSON file
         if output_json:
-            file_path = "./scrape_data/previous_website_about_stronghold.json" \
-                if self.domain_url == 'https://www.hannstar.com/' else './scrape_data/magento_about_stronghold.json'
+            file_path = "./scrape_data/" + self.domain_url.replace('/', '').replace('https:', '') +"_about_stronghold.json"
             with open(file_path, "w") as final:
                 json.dump(about_stronghold_dict, final, indent=4)
 
@@ -499,7 +508,7 @@ if __name__ == '__main__':
     # cs.scrape_investors_summary(web_path='/investors/article/financial-summary/', click_list=clicks)
 
     '''magento'''
-    new_cs = CustomerScraper(domain_url='https://magentoprd.hannstar.com')
+    new_cs = CustomerScraper(domain_url='https://www.hannstar.com/')
     # 關於翰宇彩晶
     new_cs.scrape_about_team() # 關於團隊
     new_cs.scrape_about_family(list_content=True,xpath='//div[@class="Graphics3Content"]/div',output_json=True) # 關於關係企業

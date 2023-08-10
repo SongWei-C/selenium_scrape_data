@@ -1,0 +1,254 @@
+{
+    "en": {
+        "language": "en",
+        "url": "https://www.hannstar.com/en/about/team/",
+        "table": [
+            {
+                "thead": [
+                    {
+                        "th": [
+                            "Title",
+                            "Name",
+                            "Educationandexperience"
+                        ]
+                    }
+                ],
+                "tbody": [
+                    {
+                        "th": null,
+                        "td": [
+                            "Chairman",
+                            "Yu-ChiChiao",
+                            "DoctorateofBusinessAdministration,CityUniversityofHongKongDoctorateofBusinessAdministration,certificateofcompletion,FudanUniversity"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "VicePresident",
+                            "Hsu-HoWu",
+                            "MasterofChemicalEngineering,NationalTsingHuaUniversityVicepresidentofGlobalSales&MarketingCenter,SeniorofdirectorandassistantvicepresidentofProductDevelopmentCenter,CellFactorySub-ChiefofHannStarDisplayCorporationGeneralManagerofHannsTouchSolution,Inc."
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "VicePresident",
+                            "ArpiaoLin",
+                            "PhDofMaterialDevelopment,KyushuSpecialassistantofLCD&TouchProductDevelopment&Mfg.CenterofHannStarDisplayCorporation,FactorydirectoranddirectorofMotechIndustries,Inc."
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "VicePresidentAccountingManager,FinancialManager",
+                            "BrightLin",
+                            "MasterofBusinessandManagement,NationalChiaoTungUniversityMasterofInterdisciplinaryLegalStudies,NationalTaiwanUniversityChieffinancialdirectorofNeweggCorp(Aisaarea)"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "VicePresidentCompanySecretary",
+                            "PaulChiu",
+                            "JD,WhittierLawSchoolLL.M,NewYorkUniversityDivisionchiefofInnoluxCorp.,Tsar&Tsailawfirm,HellerEhrmanLLP,Dewey\uff06LeBoeuf"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "AssistantVicePresident",
+                            "LeoHuang",
+                            "MasterofMechanicalEngineering,NationalCentralUniversityFactorydirectorofGlobalBrandSales&MarketingCenter,ProductDevelopmentCenterofHannStarDisplayCorporation"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "AssistantVicePresident",
+                            "TommyTseng",
+                            "MasterofComputerScience,TsingHuaUniversityDirectorofDigitalTransformationofQNAP,DirectorofE-CommerceBusinessofTVBS"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "AssistantVicePresident",
+                            "KevinPon",
+                            "ExecutiveMBA,CollegeofManagement,NationalTaiwanUniversityChiefHumanResourceOfficer/AssistantVicePresidentofAdministrationCenter,HannStarDisplayCorporationAssistantVicePresidentofHumanResourceDivision,UnimicronTechnologyCorp.AssistantVicePresidentofHumanResourceDivision,PouChenGroupDirectorofHumanResourceandAdministrationDivision,AliCorp."
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": null
+    },
+    "tw": {
+        "language": "tw",
+        "url": "https://www.hannstar.com/tw/about/team/",
+        "table": [
+            {
+                "thead": [
+                    {
+                        "th": [
+                            "\u8077\u7a31",
+                            "\u59d3\u540d",
+                            "\u4e3b\u8981\u7d93(\u5b78)\u6b77"
+                        ]
+                    }
+                ],
+                "tbody": [
+                    {
+                        "th": null,
+                        "td": [
+                            "\u8463\u4e8b\u9577",
+                            "\u7126\u4f51\u9e92",
+                            "\u9999\u6e2f\u57ce\u5e02\u5927\u5b78\u7ba1\u7406\u5b78\u535a\u58eb\u3001\u4e0a\u6d77\u5fa9\u65e6\u5927\u5b78\u7ba1\u7406\u5b78\u535a\u58eb\u73ed\u7d50\u696d\u83ef\u65b0\u9e97\u83ef(\u80a1)\u516c\u53f8\u8463\u4e8b/\u7e3d\u7d93\u7406\u3001\u83ef\u90a6\u96fb\u5b50(\u80a1)\u516c\u53f8\u76e3\u5bdf\u4eba\u3001\u7cbe\u91d1\u79d1\u6280(\u80a1)\u516c\u53f8\u8463\u4e8b\u9577\u3001\u701a\u5b87\u535a\u5fb7(\u80a1)\u516c\u53f8\u8463\u4e8b"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u7e3d\u7d93\u7406",
+                            "\u5433\u8a31\u5408",
+                            "\u6e05\u83ef\u5927\u5b78\u5316\u5b78\u5de5\u7a0b\u6240\u78a9\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u5168\u7403\u696d\u52d9\u66a8\u884c\u92b7\u4e2d\u5fc3\u526f\u7e3d\u7d93\u7406\u3001\u7522\u54c1\u958b\u767c\u4e2d\u5fc3\u5354\u7406\u53ca\u8cc7\u6df1\u8655\u9577\u3001Cell\u526f\u5ee0\u9577"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u7e3d\u7d93\u7406",
+                            "\u6797\u6e05\u6a19",
+                            "\u65e5\u672c\u4e5d\u5dde\u5927\u5b78\u6750\u6599\u958b\u767c\u6240\u535a\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u89f8\u63a7\u7522\u54c1\u958b\u767c\u66a8\u88fd\u9020\u4e2d\u5fc3\u7279\u52a9\u8302\u8fea/\u65b0\u80fd\u6e90(\u80a1)\u516c\u53f8\u7e3d\u7d93\u7406\u3001\u8302\u8fea(\u80a1)\u516c\u53f8\u7e3d\u5ee0\u9577"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u7e3d\u7d93\u7406\u6703\u8a08\u4e3b\u7ba1\u3001\u8ca1\u52d9\u4e3b\u7ba1",
+                            "\u6797\u5fe0\u7ff0",
+                            "\u4ea4\u901a\u5927\u5b78\u7ba1\u7406\u5b78\u9662\u7d93\u71df\u7ba1\u7406\u7814\u7a76\u6240\u78a9\u58eb\u53f0\u7063\u5927\u5b78\u6cd5\u5f8b\u5b78\u9662\u79d1\u969b\u6574\u5408\u6cd5\u5f8b\u5b78\u7814\u7a76\u6240\u78a9\u58eb\u7f8e\u5546\u65b0\u86cb\u79d1\u6280\u4e9e\u6d32\u5340\u8ca1\u52d9\u7e3d\u76e3"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u7e3d\u7d93\u7406\u516c\u53f8\u6cbb\u7406\u4e3b\u7ba1",
+                            "\u90b1\u535a\u8208",
+                            "WhittierLawSchool\u535a\u58ebNewYorkUniversity\u78a9\u58eb\u7fa4\u5275\u5149\u96fb(\u80a1)\u516c\u53f8\u8655\u9577\u3001\u5e38\u5728\u6cd5\u5f8b\u4e8b\u52d9\u6240/HellerEhrmanLLP/Dewey\uff06LeBoeuf\u5f8b\u5e2b"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u5354\u7406",
+                            "\u9ec3\u6c38\u7acb",
+                            "\u4e2d\u592e\u5927\u5b78/\u6a5f\u68b0\u5de5\u7a0b\u5b78\u78a9\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u5168\u7403\u54c1\u724c\u696d\u52d9\u884c\u92b7\u4e2d\u5fc3\u8655\u9577\u3001\u7522\u54c1\u958b\u767c\u4e2d\u5fc3\u8655\u9577"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u5354\u7406",
+                            "\u66fe\u6c38\u5b97",
+                            "\u6e05\u83ef\u5927\u5b78/\u8cc7\u8a0a\u79d1\u5b78\u78a9\u58ebQNAP\u5a01\u806f\u901a\u79d1\u6280(\u80a1)\u6578\u4f4d\u8f49\u578b\u4e2d\u5fc3\u7e3d\u76e3\u3001TVBS\u806f\u5229\u5a92\u9ad4(\u80a1)\u516c\u53f8\u96fb\u5546\u71df\u904b\u7e3d\u76e3"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u5354\u7406",
+                            "\u5f6d\u660c\u88d5",
+                            "\u570b\u7acb\u53f0\u7063\u5927\u5b78\u7ba1\u7406\u5b78\u9662EMBA\u78a9\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u4eba\u8cc7\u9577/\u884c\u653f\u4e2d\u5fc3\u5354\u7406\u6b23\u8208\u96fb\u5b50(\u80a1)\u516c\u53f8\u4eba\u529b\u8cc7\u6e90\u8655\u5354\u7406\u5bf6\u6210\u570b\u969b(\u80a1)\u516c\u53f8\u4eba\u529b\u8cc7\u6e90\u8655\u5354\u7406\u63da\u667a\u79d1\u6280(\u80a1)\u516c\u53f8\u4eba\u529b\u8cc7\u6e90\u66a8\u884c\u653f\u8655\u8655\u9577"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": null
+    },
+    "cn": {
+        "language": "cn",
+        "url": "https://www.hannstar.com/cn/about/team/",
+        "table": [
+            {
+                "thead": [
+                    {
+                        "th": [
+                            "\u804c\u79f0",
+                            "\u59d3\u540d",
+                            "\u4e3b\u8981\u7ecf(\u5b66)\u5386"
+                        ]
+                    }
+                ],
+                "tbody": [
+                    {
+                        "th": null,
+                        "td": [
+                            "\u8463\u4e8b\u957f",
+                            "\u7126\u4f51\u9e92",
+                            "\u9999\u6e2f\u57ce\u5e02\u5927\u5b66\u7ba1\u7406\u5b66\u535a\u58eb\u3001\u4e0a\u6d77\u590d\u65e6\u5927\u5b66\u7ba1\u7406\u5b66\u535a\u58eb\u73ed\u7ed3\u4e1a\u534e\u65b0\u4e3d\u534e(\u80a1)\u516c\u53f8\u8463\u4e8b/\u603b\u7ecf\u7406\u3001\u534e\u90a6\u7535\u5b50(\u80a1)\u516c\u53f8\u76d1\u5bdf\u4eba\u3001\u7cbe\u91d1\u79d1\u6280(\u80a1)\u516c\u53f8\u8463\u4e8b\u957f\u3001\u701a\u5b87\u535a\u5fb7(\u80a1)\u516c\u53f8\u8463\u4e8b"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u603b\u7ecf\u7406",
+                            "\u5434\u8bb8\u5408",
+                            "\u6e05\u534e\u5927\u5b66\u5316\u5b66\u5de5\u7a0b\u6240\u7855\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u5168\u7403\u4e1a\u52a1\u66a8\u884c\u9500\u4e2d\u5fc3\u526f\u603b\u7ecf\u7406\u3001\u4ea7\u54c1\u5f00\u53d1\u4e2d\u5fc3\u534f\u7406\u53ca\u8d44\u6df1\u5904\u957f\u3001Cell\u526f\u5382\u957f"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u603b\u7ecf\u7406",
+                            "\u6797\u6e05\u6807",
+                            "\u65e5\u672c\u4e5d\u5dde\u5927\u5b66\u6750\u6599\u5f00\u53d1\u6240\u535a\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u89e6\u63a7\u4ea7\u54c1\u5f00\u53d1\u66a8\u5236\u9020\u4e2d\u5fc3\u7279\u52a9\u8302\u8fea/\u65b0\u80fd\u6e90(\u80a1)\u516c\u53f8\u603b\u7ecf\u7406\u3001\u8302\u8fea(\u80a1)\u516c\u53f8\u603b\u5382\u957f"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u603b\u7ecf\u7406\u4f1a\u8ba1\u4e3b\u7ba1\u3001\u8d22\u52a1\u4e3b\u7ba1",
+                            "\u6797\u5fe0\u7ff0",
+                            "\u4ea4\u901a\u5927\u5b66\u7ba1\u7406\u5b66\u9662\u7ecf\u8425\u7ba1\u7406\u7814\u7a76\u6240\u7855\u58eb\u53f0\u6e7e\u5927\u5b66\u6cd5\u5f8b\u5b66\u9662\u79d1\u9645\u6574\u5408\u6cd5\u5f8b\u5b66\u7814\u7a76\u6240\u7855\u58eb\u7f8e\u5546\u65b0\u86cb\u79d1\u6280\u4e9a\u6d32\u533a\u8d22\u52a1\u603b\u76d1"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u526f\u603b\u7ecf\u7406\u516c\u53f8\u6cbb\u7406\u4e3b\u7ba1",
+                            "\u90b1\u535a\u5174",
+                            "WhittierLawSchool\u535a\u58ebNewYorkUniversity\u7855\u58eb\u7fa4\u521b\u5149\u7535(\u80a1)\u516c\u53f8\u5904\u957f\u3001\u5e38\u5728\u6cd5\u5f8b\u4e8b\u52a1\u6240/HellerEhrmanLLP/Dewey\uff06LeBoeuf\u5f8b\u5e08"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u534f\u7406",
+                            "\u9ec4\u6c38\u7acb",
+                            "\u4e2d\u592e\u5927\u5b66/\u673a\u68b0\u5de5\u7a0b\u5b66\u7855\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u5168\u7403\u54c1\u724c\u4e1a\u52a1\u884c\u9500\u4e2d\u5fc3\u5904\u957f\u3001\u4ea7\u54c1\u5f00\u53d1\u4e2d\u5fc3\u5904\u957f"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u534f\u7406",
+                            "\u66fe\u6c38\u5b97",
+                            "\u6e05\u534e\u5927\u5b66/\u8d44\u8baf\u79d1\u5b66\u7855\u58ebQNAP\u5a01\u8054\u901a\u79d1\u6280(\u80a1)\u6570\u4f4d\u8f6c\u578b\u4e2d\u5fc3\u603b\u76d1\u3001TVBS\u8054\u5229\u5a92\u4f53(\u80a1)\u516c\u53f8\u7535\u5546\u8425\u8fd0\u603b\u76d1"
+                        ]
+                    },
+                    {
+                        "th": null,
+                        "td": [
+                            "\u534f\u7406",
+                            "\u5f6d\u660c\u88d5",
+                            "\u56fd\u7acb\u53f0\u6e7e\u5927\u5b66\u7ba1\u7406\u5b66\u9662EMBA\u7855\u58eb\u701a\u5b87\u5f69\u6676(\u80a1)\u516c\u53f8\u4eba\u8d44\u957f/\u884c\u653f\u4e2d\u5fc3\u534f\u7406\u6b23\u5174\u7535\u5b50(\u80a1)\u516c\u53f8\u4eba\u529b\u8d44\u6e90\u5904\u534f\u7406\u5b9d\u6210\u56fd\u9645(\u80a1)\u516c\u53f8\u4eba\u529b\u8d44\u6e90\u5904\u534f\u7406\u626c\u667a\u79d1\u6280(\u80a1)\u516c\u53f8\u4eba\u529b\u8d44\u6e90\u66a8\u884c\u653f\u5904\u5904\u957f"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": null
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "@type": "MessageCard",
+    "@context": "http://schema.org/extensions",
+    "title": "Alert",
+    "summary": "Business Opportunity List - sharepoint link",
+    "themeColor": "F15736",
+    "sections": [
+        {
+            "facts":[
+                {
+                    "name": "Alert url:",
+                    "value": "[{{website_url}}]({{website_url}})"
+                }
+            ]
+        },
+        {
+            "title": "## **WARNING Message**",
+            "text": "{{message}}",
+
+            "facts":[
+
+            ]
+        }
+
+    ]
+}

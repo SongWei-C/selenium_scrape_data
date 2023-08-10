@@ -1,0 +1,207 @@
+{
+   "type":"message",
+   "attachments":[
+      {
+         "contentType":"application/vnd.microsoft.card.adaptive",
+         "contentUrl":null,
+         "content":{
+             "msteams": {
+                "width": "Full"
+            },
+            "$schema":"http://adaptivecards.io/schemas/adaptive-card.json",
+            "type":"AdaptiveCard",
+            "version":"1.6",
+            "body":[
+                {
+            "type": "Container",
+            "id": "c4c34a63-3fe3-f430-a852-f21005efc03d",
+            "padding": "None",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "id": "32e89ff0-f249-8b2e-b63e-211b764573e3",
+                    "text": "{{title}}",
+                    "wrap": true,
+                    "size": "ExtraLarge",
+                    "weight": "Bolder",
+                    "horizontalAlignment": "Center"
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "8c14d411-faf5-9524-442f-bdb266ba7f1f",
+            "padding": "None",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "id": "8e1fcde9-045a-e8a6-99a7-c32f703abf53",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "id": "912f429e-e4db-6e04-11e5-b5749bf7c770",
+                            "padding": "None",
+                            "width": "20px",
+                            "horizontalAlignment": "Left"
+                        },
+                        {
+                            "type": "Column",
+                            "id": "b0c6f47e-86f4-1a50-6bfc-3a630bd18517",
+                            "padding": "None",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Container",
+                                    "id": "b8d93b34-4466-81d3-79f9-a30234baf316",
+                                    "padding": "None",
+                                    "items": [
+                                        {
+                                            "type": "ColumnSet",
+                                            "id": "63d286ce-6f01-ced5-a2f3-37385b46f83f",
+                                            "columns": [
+                                                {
+                                                    "type": "Column",
+                                                    "id": "e5557321-4e28-c68d-259e-71b377beb278",
+                                                    "padding": "None",
+                                                    "width": "auto",
+                                                    "items": [
+                                                        {
+                                                            "type": "Image",
+                                                            "id": "43596171-4cd9-0503-0e6d-4ec42332ddaf",
+                                                            "url": "{{CompanyImage}}",
+                                                            "size": "Medium",
+                                                            "horizontalAlignment": "Center",
+                                                            "width": "50px",
+                                                            "style": "Person",
+                                                            "height": "50px"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Column",
+                                                    "id": "bb776338-37d3-d7ab-d7f8-d2b49eed1f3b",
+                                                    "padding": "None",
+                                                    "width": "auto",
+                                                    "items": [
+                                                        {
+                                                            "type": "TextBlock",
+                                                            "id": "568798f2-adb2-f088-5beb-af22268433f4",
+                                                            "text": "公司名稱",
+                                                            "weight": "Bolder"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Column",
+                                                    "items": [
+                                                        {
+                                                            "type": "TextBlock",
+                                                            "id": "580aac5c-f803-b1af-84ec-6df0a9c18004",
+                                                            "text": "[{{CompanyName}}]({{CompanyURL}})",
+                                                            "wrap": true,
+                                                            "weight": "Bolder",
+                                                            "color": "Accent"
+                                                        }
+                                                    ],
+                                                    "padding": "None",
+                                                    "width": "auto"
+                                                }
+                                            ],
+                                            "padding": "None",
+                                            "separator": true,
+                                            "horizontalAlignment": "Left"
+                                        },
+                                        {
+                                            "type": "FactSet",
+                                            "id": "cea722fe-a2f6-67ad-0901-ef11772f0872",
+                                            "facts": [
+                                                {
+                                                    "title": "國別",
+                                                    "value": "{{Country}}"
+                                                },
+                                                {
+                                                    "title": "營收",
+                                                    "value": "{{Revenue}}"
+                                                },
+                                                {
+                                                    "title": "營業項目",
+                                                    "value": "{{BG_item}}"
+                                                },
+                                                {
+                                                    "title": "產品項目",
+                                                    "value": "{{ProductItem}}"
+                                                },
+                                                {
+                                                    "title": "聯繫窗口",
+                                                    "value": "{{Contact}}"
+                                                },
+                                                {
+                                                    "title": "公司地址",
+                                                    "value": "{{Address}}"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "ActionSet",
+                                            "id": "f5c888b5-886e-7bc7-f3f4-2d372426dbc6",
+                                            "actions": [
+                                                {
+                                                    "type": "Action.ShowCard",
+                                                    "id": "f44eef7a-c79c-a47b-26b5-eab94c547b36",
+                                                    "title": "目標品項",
+                                                    "card": {
+                                                        "type": "AdaptiveCard",
+                                                        "padding": "None",
+                                                        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                                                        "body": [
+                                                            {
+                                                                "type": "Container",
+                                                                "id": "f62813ea-c9c1-4851-fdc1-f0dc49c9513f",
+                                                                "padding": "None",
+                                                                "items": [
+                                                                    {
+                                                                        "type": "TextBlock",
+                                                                        "id": "9df3171d-5062-03ed-ff9b-c28df03ba37e",
+                                                                        "text": "目標品項清單",
+                                                                        "weight": "Bolder",
+                                                                        "horizontalAlignment": "Left",
+                                                                        "color": "Warning",
+                                                                        "wrap": true
+                                                                    },
+                                                                    "{{ProductTemplate}}"
+                                                                ],
+                                                                "separator": true
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "horizontalAlignment": "Left"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "padding": "None"
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "id": "281ca816-72fc-e320-289f-2def02d7fddd",
+                            "padding": "None",
+                            "width": "auto"
+                        }
+                    ],
+                    "padding": "None",
+                    "spacing": "Large"
+                }
+            ]
+        }
+            ]
+         }
+      }
+   ]
+}

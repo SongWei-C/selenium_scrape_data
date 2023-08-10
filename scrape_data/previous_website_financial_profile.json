@@ -1,0 +1,206 @@
+{
+    "en": {
+        "language": "en",
+        "url": "https://www.hannstar.com/en/investors/article/financial-summary/",
+        "table": [
+            {
+                "thead": null,
+                "tbody": [
+                    {
+                        "th": [
+                            "CompanyName"
+                        ],
+                        "td": [
+                            "HannStarDisplayCorporation"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "StockCode"
+                        ],
+                        "td": [
+                            "6116"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "Paid-InCapital"
+                        ],
+                        "td": [
+                            "NTD29,403,288,510"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "Commonstock"
+                        ],
+                        "td": [
+                            "2,940,328,851shares"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "ListingDate"
+                        ],
+                        "td": [
+                            "2004/09/06"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "Stocktransferagencyandaddress"
+                        ],
+                        "td": [
+                            "HannStarCo.,Ltd.ShareAffairsOffice8F,No.398,XingshanRd.,NeihuDist.,TaipeiCity114,Taiwan(R.O.C.)"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "Accountancyfirms"
+                        ],
+                        "td": [
+                            "PricewaterhouseCoopers(PwC)Taiwan"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": null
+    },
+    "tw": {
+        "language": "tw",
+        "url": "https://www.hannstar.com/investors/article/financial-summary/",
+        "table": [
+            {
+                "thead": null,
+                "tbody": [
+                    {
+                        "th": [
+                            "\u516c\u53f8\u540d\u7a31"
+                        ],
+                        "td": [
+                            "\u701a\u5b87\u5f69\u6676\u80a1\u4efd\u6709\u9650\u516c\u53f8"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u80a1\u7968\u4ee3\u865f"
+                        ],
+                        "td": [
+                            "6116"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u5be6\u6536\u8cc7\u672c\u984d"
+                        ],
+                        "td": [
+                            "\u65b0\u53f0\u5e6329,403,288,510\u5143"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u666e\u901a\u80a1"
+                        ],
+                        "td": [
+                            "2,940,328,851\u80a1"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u4e0a\u5e02\u639b\u724c\u65e5\u671f"
+                        ],
+                        "td": [
+                            "2004/09/06"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u80a1\u7968\u904e\u6236\u6a5f\u69cb\u53ca\u5730\u5740"
+                        ],
+                        "td": [
+                            "\u701a\u5b87\u5f69\u6676\u80a1\u4efd\u6709\u9650\u516c\u53f8\u80a1\u52d9\u8fa6\u4e8b\u8655114\u53f0\u5317\u5e02\u5167\u6e56\u5340\u884c\u5584\u8def398\u865f8\u6a13"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u7c3d\u8b49\u6703\u8a08\u5e2b\u4e8b\u52d9\u6240"
+                        ],
+                        "td": [
+                            "\u8cc7\u8aa0\u806f\u5408\u6703\u8a08\u5e2b\u4e8b\u52d9\u6240"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": null
+    },
+    "cn": {
+        "language": "cn",
+        "url": "https://www.hannstar.com/cn/investors/article/financial-summary/",
+        "table": [
+            {
+                "thead": null,
+                "tbody": [
+                    {
+                        "th": [
+                            "\u516c\u53f8\u540d\u79f0"
+                        ],
+                        "td": [
+                            "\u701a\u5b87\u5f69\u6676\u80a1\u4efd\u6709\u9650\u516c\u53f8"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u80a1\u7968\u4ee3\u53f7"
+                        ],
+                        "td": [
+                            "6116"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u5b9e\u6536\u8d44\u672c\u989d"
+                        ],
+                        "td": [
+                            "\u65b0\u53f0\u5e0129,403,288,510\u5143"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u666e\u901a\u80a1"
+                        ],
+                        "td": [
+                            "2,940,328,851\u80a1"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u4e0a\u5e02\u6302\u724c\u65e5\u671f"
+                        ],
+                        "td": [
+                            "2004/09/06"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u80a1\u7968\u8fc7\u6237\u673a\u6784\u53ca\u5730\u5740"
+                        ],
+                        "td": [
+                            "\u701a\u5b87\u5f69\u6676\u80a1\u4efd\u6709\u9650\u516c\u53f8\u80a1\u52a1\u529e\u4e8b\u5904114\u53f0\u5317\u5e02\u5185\u6e56\u533a\u884c\u5584\u8def398\u53f78\u697c"
+                        ]
+                    },
+                    {
+                        "th": [
+                            "\u7b7e\u8bc1\u4f1a\u8ba1\u5e08\u4e8b\u52a1\u6240"
+                        ],
+                        "td": [
+                            "\u8d44\u8bda\u8054\u5408\u4f1a\u8ba1\u5e08\u4e8b\u52a1\u6240"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "content": null
+    }
+}

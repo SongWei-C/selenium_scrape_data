@@ -142,17 +142,17 @@ class Data_Verification:
                             #----------------------------------------------------------------------------------------------
                             # 檢查table body row數量
                             if std_table['tbody'] == None and val_table['tbody'] != None:
-                                message = 'The number of <table body rows> is different: Standard Sample(' + \
+                                message = '[The number of <table body rows> is different]: Standard Sample(' + \
                                           std_lang_obj['url'] + ') not find any table body row.'
                                 temp_log['table_logging']['error_message'].append(message)
                             elif std_table['tbody'] != None and val_table['tbody'] == None:
-                                message = 'The number of <table body rows> is different: Validation Data(' + \
+                                message = '[The number of <table body rows> is different]: Validation Data(' + \
                                           verify_lang_obj[
                                               'url'] + ') not find any table body row.'
                                 temp_log['table_logging']['error_message'].append(message)
                             elif std_table['tbody'] != None and val_table['tbody'] != None:
                                 if len(std_table['tbody']) != len(val_table['tbody']):
-                                    message = 'The number of <table body rows> is different:' + str(
+                                    message = '[The number of <table body rows> is different]:' + str(
                                         len(std_table['tbody'])) + 'table body rows found in '+ str(i) +\
                                               'Table in Standard sample(' + std_lang_obj['url'] +\
                                               '),but ' + str(len(val_table['tbody'])) + 'table body rows found in '+\

@@ -16,6 +16,7 @@ def send_alert_to_teams(message:str='', val_url:str=''):
         json_template = f.read()
         json_body = json_template
 
+<<<<<<< HEAD
     message = message.replace('\n', '</br>')
     json_body = json_body.replace('{{website_url}}', val_url)
     json_body = json_body.replace('{{message}}', message)
@@ -24,6 +25,15 @@ def send_alert_to_teams(message:str='', val_url:str=''):
     json_headers = {
         'Content-Type': 'application/json',
     }
+=======
+        json_body.replace('{{website_url}}', val_url)
+        json_body.replace('{{message}}', message)
+        print('---------------------------------------------------')
+        # print(json_body)
+        json_headers = {
+            'Content-Type': 'application/json',
+        }
+>>>>>>> c3839e4ab94971458aaf5d6c4c7dde4f2435d087
 
     json_body = json.loads(json_body)
 

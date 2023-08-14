@@ -1,0 +1,50 @@
+1691978366055	geckodriver	INFO	Listening on 127.0.0.1:57072
+1691978605399	geckodriver	INFO	Listening on 127.0.0.1:57632
+1691978608353	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57633" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\SONGWE~1\\AppData\\Local\\Temp\\rust_mozprofiled7Aq6G"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1691978609046	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1691978609177	Marionette	INFO	Listening on port 57641
+WebDriver BiDi listening on ws://127.0.0.1:57633
+Read port: 57641
+1691978609503	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:57633/devtools/browser/128f44a6-372a-4e3c-98da-6d5b0765eec9
+console.error: ({})
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 95: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 98: TypeError: require is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 231: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 238: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 259: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 756: TypeError: require is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 773: TypeError: require is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 778: TypeError: require is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 95: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 98: TypeError: require is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 231: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 238: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 259: TypeError: require.config is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 756: TypeError: require is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 773: TypeError: require is not a function
+JavaScript error: https://magentoprd.hannstar.com/tw/sustainability/governance?esgTab=Audit, line 778: TypeError: require is not a function
+console.error: ({})
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-Z4V2156QS8&l=dataLayer&cx=c, line 164: Script terminated by timeout at:
+l@https://www.googletagmanager.com/gtag/js?id=G-Z4V2156QS8&l=dataLayer&cx=c:164:17
+lz@https://www.googletagmanager.com/gtag/js?id=G-Z4V2156QS8&l=dataLayer&cx=c:449:134
+mz/<@https://www.googletagmanager.com/gtag/js?id=G-Z4V2156QS8&l=dataLayer&cx=c:449:111
+
+1691978627418	Marionette	INFO	Stopped listening on port 57641
+Dynamically enable window occlusion 1
+[Parent 58964, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 105480, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 58964, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 105480, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+!!! error running onStopped callback: TypeError: callback is not a function
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 51: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1691978627526	WebDriver BiDi	ERROR	Failed to stop protocol: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: chrome://remote/content/marionette/cert.sys.mjs :: allowAllCerts.disable :: line 51"  data: no] Stack trace: allowAllCerts.disable()@cert.sys.mjs:51
+destroy()@Session.sys.mjs:217
+deleteSession()@WebDriverBiDi.sys.mjs:142
+stop()@WebDriverBiDi.sys.mjs:230
+observe()@resource://gre/modules/AsyncShutdown.sys.mjs:575
+[Parent 58964, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 105480, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443

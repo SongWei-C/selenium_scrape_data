@@ -1,19 +1,19 @@
-import undetected_chromedriver as uc
+import pandas as pd
+import time
 from selenium.webdriver.common.by import By
 from fake_useragent import UserAgent
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
-import time
 from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
 # from multiprocessing.pool import ThreadPool as Pool
 import json
-
+import jsbeautifier
 class CustomerScraper:
     """Scrape the website url by customer name"""
     ua = UserAgent()
@@ -41,6 +41,557 @@ class CustomerScraper:
             domain_url += '/'
         self.domain_url = domain_url
         self.language_codes = language_code
+
+    def save2json(self,
+            SAVE_PATH: str,
+            Dict_json_output_final: dict):
+
+        options = jsbeautifier.default_options()
+        options.indent_size = 4
+
+        with open(SAVE_PATH, 'w', encoding='utf-8') as json_file:
+            json_file.write(jsbeautifier.beautify(json.dumps(Dict_json_output_final, ensure_ascii=False), options))
+
+    def soup_get_text(self,
+            table_element,
+            no,
+            Dict_json):
+
+        table_html = table_element.get_attribute('outerHTML')
+        soup = BeautifulSoup(table_html, 'html.parser')
+        text_content = soup.get_text()
+
+        Dict_json['Content{}'.format(no)] = text_content.replace('\t', '').replace('\r', '').replace('\n', '').replace('\\', '')
+
+    def table2json3(self,
+            df, Dict_json):
+
+        json_data = {}
+        Lst_column_names = list(df.columns)
+        for index, row in df.iterrows():
+            json_data_tmp = {}
+            json_data_tmp['{}'.format(Lst_column_names[0])] = row['{}'.format(Lst_column_names[0])].replace('\t',
+                                                                                                            '').replace(
+                '\r', '').replace('\n', '').replace('\\', '')
+            json_data_tmp['{}'.format(Lst_column_names[1])] = row['{}'.format(Lst_column_names[1])].replace('\t',
+                                                                                                            '').replace(
+                '\r', '').replace('\n', '').replace('\\', '')
+            json_data_tmp['{}'.format(Lst_column_names[2])] = row['{}'.format(Lst_column_names[2])].replace('\t',
+                                                                                                            '').replace(
+                '\r', '').replace('\n', '').replace('\\', '')
+            json_data['No.{}'.format(index + 1)] = json_data_tmp
+
+        return json_data
+
+    # ESG-公司治理
+    def board_directors_supervisors(self,
+            Dict_json_output,
+            LANGUAGE):
+
+        url = "https://www.hannstar.com/{}/sustainability/governance".format(LANGUAGE)
+        self.driver.get(url)
+
+        time.sleep(5)
+        self.driver.get(url)
+
+        Dict_json = {}
+
+        # ----------------------------- 內容1 ----------------------------------------------------
+        time.sleep(5)
+        if (LANGUAGE == 'tw' or LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[1]/p/span")
+        elif (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[1]")
+
+        no = 1
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 表格1 ----------------------------------------------------
+
+        # 定位表格元素
+        time.sleep(5)
+        table_element = self.driver.find_element('xpath',
+                                            "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[2]/table")
+        table_html = table_element.get_attribute('outerHTML')
+        df = pd.read_html(table_html)[0]
+
+        json_data = self.table2json3(df, Dict_json)
+        Dict_json['Table1'] = json_data
+
+        Dict_json_output['董事會名單'] = Dict_json
+
+        print("{} process SUCCESS".format(url))
+
+        return Dict_json_output
+
+    def audit_committee(self, # 審計委員會
+            Dict_json_output,
+            LANGUAGE):
+
+        url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Audit".format(LANGUAGE)
+        self.driver.get(url)
+
+        time.sleep(5)
+        self.driver.get(url)
+
+        Dict_json = {}
+
+        # ----------------------------- 內容1 ----------------------------------------------------
+        time.sleep(5)
+        if (LANGUAGE == 'tw'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div[1]/p/span[2]")
+        elif (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[1]")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div[1]/p/span[4]")
+
+        no = 1
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 表格1 ----------------------------------------------------
+
+        # 定位表格元素
+        time.sleep(5)
+        table_element = self.driver.find_element('xpath',
+                                            "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div[2]/table")
+        table_html = table_element.get_attribute('outerHTML')
+        df = pd.read_html(table_html)[0]
+
+        json_data = self.table2json3(df, Dict_json)
+        Dict_json['Table1'] = json_data
+
+        # ----------------------------- 內容2 ----------------------------------------------------
+        time.sleep(5)
+        if (LANGUAGE == 'tw' or LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p/span/strong")
+
+        no = 2
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 表格2 ----------------------------------------------------
+
+        # 定位表格元素
+        time.sleep(5)
+        table_element = self.driver.find_element('xpath',
+                                            "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[2]/table")
+        table_html = table_element.get_attribute('outerHTML')
+        df = pd.read_html(table_html, header=0)[0]
+
+        json_data = {}
+        Lst_column_names = list(df.columns)
+        for index, row in df.iterrows():
+            json_data_tmp = {}
+            json_data_tmp['{}'.format(Lst_column_names[0])] = row['{}'.format(Lst_column_names[0])].replace('\t',
+                                                                                                            '').replace(
+                '\r', '').replace('\n', '').replace('\\', '')
+            json_data_tmp['{}'.format(Lst_column_names[1])] = row['{}'.format(Lst_column_names[1])].replace('\t',
+                                                                                                            '').replace(
+                '\r', '').replace('\n', '').replace('\\', '')
+            json_data_tmp['{}'.format(Lst_column_names[2])] = row['{}'.format(Lst_column_names[2])].replace('\t',
+                                                                                                            '').replace(
+                '\r', '').replace('\n', '').replace('\\', '')
+            json_data_tmp['{}'.format(Lst_column_names[3])] = row['{}'.format(Lst_column_names[3])].replace('\t',
+                                                                                                            '').replace(
+                '\r', '').replace('\n', '').replace('\\', '')
+
+            json_data['No.{}'.format(index + 1)] = json_data_tmp
+
+        Dict_json['Table2'] = json_data
+
+        Dict_json_output['審計委員會'] = Dict_json
+
+        print("{} process SUCCESS".format(url))
+
+        return Dict_json_output
+
+    def remuneration_committee(self, # 薪酬委員會
+            Dict_json_output,
+            LANGUAGE):
+
+        url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Salary".format(LANGUAGE)
+        self.driver.get(url)
+
+        time.sleep(5)
+        self.driver.get(url)
+
+        Dict_json = {}
+
+        # ----------------------------- 內容1 ----------------------------------------------------
+        time.sleep(5)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[1]/p[1]/span[2]/strong")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[1]/p[1]/span[1]/strong")
+
+        no = 1
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容2 ----------------------------------------------------
+        time.sleep(5)
+        table_element = self.driver.find_element('xpath',
+                                            "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[1]/p[2]/span")
+
+        no = 2
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 表格1 ----------------------------------------------------
+
+        # 定位表格元素
+        time.sleep(5)
+        table_element = self.driver.find_element('xpath',
+                                            "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[2]/table")
+
+        table_html = table_element.get_attribute('outerHTML')
+        df = pd.read_html(table_html)[0]
+
+        json_data = self.table2json3(df, Dict_json)
+        Dict_json['Table1'] = json_data
+
+        Dict_json_output['薪酬委員會'] = Dict_json
+
+        print("{} process SUCCESS".format(url))
+
+        return Dict_json_output
+
+    def auditor(self, # 內部稽核
+            Dict_json_output,
+            LANGUAGE):
+
+        url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Check".format(LANGUAGE)
+        self.driver.get(url)
+
+        time.sleep(5)
+        self.driver.get(url)
+
+        Dict_json = {}
+
+        # ----------------------------- 內容1 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[1]/span/span/strong")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[1]/span/strong")
+
+        no = 1
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容2 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[2]/span[1]")
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[3]")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[2]/span/span[1]")
+
+        no = 2
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容3 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[2]/span[2]/span/span/strong")
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[4]")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[2]/span/span[2]/span/strong")
+
+        no = 3
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容4 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[5]/span")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[3]/span/span")
+
+        no = 4
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容5 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[6]/span/span")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[4]/span/span")
+
+        no = 5
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容6 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[7]/span/span")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[5]/span/span")
+
+        no = 6
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容7 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[8]/span")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[6]/span")
+
+        no = 7
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容8 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[1]/span/span/strong")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[1]/span[1]/span/strong")
+
+        no = 8
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容9 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[9]/span")
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[2]/span")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[2]/span")
+
+        no = 9
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容10 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p/span/span/strong")
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[4]/span/strong")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[4]/span[1]/strong")
+
+        no = 10
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 表格1 ----------------------------------------------------
+
+        # 定位表格元素
+        time.sleep(2)
+        table_element = self.driver.find_element('xpath',
+                                            "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[2]")
+
+        table_html = table_element.get_attribute('outerHTML')
+        df = pd.read_html(table_html)[0]
+
+        json_data = self.table2json3(df, Dict_json)
+        Dict_json['Table1'] = json_data
+
+        # ----------------------------- 內容11 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[1]/span/span/strong")
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[1]/strong/span")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[2]/span/span/strong")
+
+        no = 11
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容12 ----------------------------------------------------
+        time.sleep(2)
+
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[2]")
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[2]")
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[3]")
+
+        no = 12
+        self.soup_get_text(table_element, no, Dict_json)
+
+        Dict_json_output['內部稽核'] = Dict_json
+
+        print("{} process SUCCESS".format(url))
+
+        return Dict_json_output
+
+    def ethical_rule(self, # 誠信經營
+            Dict_json_output,
+            LANGUAGE):
+
+        url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Operate".format(LANGUAGE)
+        self.driver.get(url)
+
+        time.sleep(5)
+        self.driver.get(url)
+
+        Dict_json = {}
+
+        # ----------------------------- 內容1 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[1]')
+        elif (LANGUAGE == 'tw'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[1]')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span')
+
+        no = 1
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容2 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[2]/span[1]')
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span/span')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[2]/span[1]')
+
+        no = 2
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容3 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'cn'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[2]/span[2]')
+        elif (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                '/html/body/div[3]/main/div[3]/div/div/div[2]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[4]/span/span/span')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[2]/span[2]')
+
+        no = 3
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容4 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[5]/span/span/span')
+        elif (LANGUAGE == 'tw'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[2]/span[3]')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[2]/span[3]')
+
+        no = 4
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容5 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[6]/span/span/span')
+        elif (LANGUAGE == 'tw'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span/span')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[4]/span/span/span')
+
+        no = 5
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容6 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[7]/span/span/span')
+        elif (LANGUAGE == 'tw'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[4]/span/span/span')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[5]/span/span/span')
+
+        no = 6
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容7 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[8]/span/span/span')
+        elif (LANGUAGE == 'tw'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[5]/span/span/span')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[6]/span/span/span')
+
+        no = 7
+        self.soup_get_text(table_element, no, Dict_json)
+
+        # ----------------------------- 內容8 ----------------------------------------------------
+        time.sleep(2)
+        if (LANGUAGE == 'en'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[9]/span/span')
+        elif (LANGUAGE == 'tw'):
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[6]/span/span')
+        else:
+            table_element = self.driver.find_element('xpath',
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[7]/span/span')
+
+        no = 8
+        self.soup_get_text(table_element, no, Dict_json)
+
+        Dict_json_output['誠信經營'] = Dict_json
+
+        print("{} process SUCCESS".format(url))
+
+        return Dict_json_output
 
     def scrape_financial_profile(self, web_path:str='/investors/summary', output_json:bool = True) -> None:
         # 會直接將爬蟲存成類別變數(Dict)
@@ -494,25 +1045,84 @@ class CustomerScraper:
         self.driver.quit()
 
 if __name__ == '__main__':
-    '''https://www.hannstar.com(舊)'''
-    # cs = CustomerScraper()
-    # 關於翰宇彩晶
-    # cs.scrape_about_team() # 關於團隊
-    # cs.scrape_about_family(list_content=True,xpath='//div[@class="mainArea noPB"]/ul/li',output_json=True) # 關於關係企業
-    # cs.scrape_about_certification(web_path='/about/certification/', content_xpath='//div[@class="itemAllType itemOnlyText itemWrap"]/div', output_json=True)
-    # cs.scrape_about_stronghold(content_xpath='//div[@class="strongholdBox"]', output_json=True) # 全球據點
-    #投資人關係
-    # cs.scrape_financial_profile(web_path='/investors/article/financial-summary/') # 公司概況-財務基本資料
-    # clicks = [['Financial Information', 'Financial Calendar', 'List of major shareholders'],
-    #           ['財務基本資料', '營運報告行事曆', '主要股東名單'], ['財務基本資料', '营运报告行事历', '主要股东名单']]
-    # cs.scrape_investors_summary(web_path='/investors/article/financial-summary/', click_list=clicks)
-
     '''magento'''
+    # 爬蟲物件實體化
     new_cs = CustomerScraper(domain_url='https://www.hannstar.com/')
     # 關於翰宇彩晶
     new_cs.scrape_about_team() # 關於團隊
     new_cs.scrape_about_family(list_content=True,xpath='//div[@class="Graphics3Content"]/div',output_json=True) # 關於關係企業
     new_cs.scrape_about_certification(content_xpath='//div[@class="D360TemplatesModuleBlock"]', output_json=True) # 關於認證
     new_cs.scrape_about_stronghold(content_xpath='//div[@class="AboutStrongholdBlock"]', output_json=True) # 關於全球據點
-    # 投資人關係
-    # new_cs.scrape_financial_profile() # 公司概況-財務基本資料
+
+    # ESG - 公司治理
+    Lst_language_mode = ['tw', 'cn', 'en']
+
+    """ # 董事會名單 """
+    Dict_json_output_final = {}
+    print("董事會名單 process ...")
+    for i, LANGUAGE in enumerate(Lst_language_mode):
+
+        Dict_json_output = {}
+        Dict_json_output = new_cs.board_directors_supervisors(Dict_json_output, LANGUAGE)
+        Dict_json_output_final['{}'.format(LANGUAGE)] = Dict_json_output
+
+    SAVE_PATH = './scrape_data/www.hannstar.com_董事會名單.json'
+    new_cs.save2json(SAVE_PATH, Dict_json_output_final)
+    print("---------------------------------------------------")
+
+
+    """ 審計委員會 """
+    Dict_json_output_final = {}
+    print("審計委員會 process ...")
+    for i, LANGUAGE in enumerate(Lst_language_mode):
+        Dict_json_output = {}
+        Dict_json_output = new_cs.audit_committee(Dict_json_output, LANGUAGE)
+        Dict_json_output_final['{}'.format(LANGUAGE)] = Dict_json_output
+
+    SAVE_PATH = './scrape_data/www.hannstar.com_審計委員會.json'
+    new_cs.save2json(SAVE_PATH, Dict_json_output_final)
+    print("---------------------------------------------------")
+
+
+    """ 薪酬委員會 """
+    Dict_json_output_final = {}
+    print("薪酬委員會 process ...")
+    for i, LANGUAGE in enumerate(Lst_language_mode):
+
+        Dict_json_output = {}
+        Dict_json_output = new_cs.remuneration_committee(Dict_json_output, LANGUAGE)
+        Dict_json_output_final['{}'.format(LANGUAGE)] = Dict_json_output
+
+    SAVE_PATH = './scrape_data/www.hannstar.com_薪酬委員會.json'
+    new_cs.save2json(SAVE_PATH, Dict_json_output_final)
+    print("---------------------------------------------------")
+
+    """ # 內部稽核 """
+    Dict_json_output_final = {}
+    print("內部稽核 process ...")
+    for i, LANGUAGE in enumerate(Lst_language_mode):
+
+        Dict_json_output = {}
+        Dict_json_output = new_cs.auditor(Dict_json_output, LANGUAGE)
+        Dict_json_output_final['{}'.format(LANGUAGE)] = Dict_json_output
+
+
+    SAVE_PATH = './scrape_data/www.hannstar.com_內部稽核.json'
+    new_cs.save2json(SAVE_PATH, Dict_json_output_final)
+    print("---------------------------------------------------")
+
+    """ # 誠信經營 """
+    Dict_json_output_final = {}
+    print("誠信經營 process ...")
+    for i, LANGUAGE in enumerate(Lst_language_mode):
+
+        Dict_json_output = {}
+        Dict_json_output = new_cs.ethical_rule(Dict_json_output, LANGUAGE)
+        Dict_json_output_final['{}'.format(LANGUAGE)] = Dict_json_output
+
+
+    #print(Dict_json_output_final)
+    SAVE_PATH = './scrape_data/www.hannstar.com_誠信經營.json'
+    new_cs.save2json(SAVE_PATH, Dict_json_output_final)
+    print("---------------------------------------------------")
+

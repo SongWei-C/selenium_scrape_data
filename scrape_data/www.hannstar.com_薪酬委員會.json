@@ -1,0 +1,71 @@
+{
+    "tw": {
+        "薪酬委員會": {
+            "Content1": "本公司於100年9月28日設立「薪資報酬委員會」，訂定「薪資報酬委員會組織規程」。",
+            "Content2": "薪資報酬委員會共有三名成員，目前由2名獨立董事及1名獨立專業人士組成，旨在協助董事會訂定並定期檢討董事及經理人績效評估與薪資報酬之政策、制度、標準與結構。",
+            "Table1": {
+                "No.1": {
+                    "職稱": "獨立董事",
+                    "姓名": "孫璐筠",
+                    "目前兼任本公司及其他公司之職務": "無。"
+                },
+                "No.2": {
+                    "職稱": "獨立董事",
+                    "姓名": "趙辛哲",
+                    "目前兼任本公司及其他公司之職務": "台橡股份有限公司獨立董事。"
+                },
+                "No.3": {
+                    "職稱": "委員",
+                    "姓名": "江惠中",
+                    "目前兼任本公司及其他公司之職務": "鑫特材料科技（股）公司法人董事代表人兼總經理、順昶塑膠（股）公司監察人、台聚光電（股）公司法人監察人代表人、葳天科技(股)公司獨立董事。"
+                }
+            }
+        }
+    },
+    "cn": {
+        "薪酬委員會": {
+            "Content1": "本公司于100年9月28日设立「薪资报酬委员会」，订定「薪资报酬委员会组织规程」。",
+            "Content2": "薪资报酬委员会共有三名成员，目前由2名独立董事及1名独立专业人士组成，旨在协助董事会订定并定期检讨董事及经理人绩效评估与薪资报酬之政策、制度、标准与结构。",
+            "Table1": {
+                "No.1": {
+                    "职称": "独立董事",
+                    "姓名": "孙璐筠",
+                    "目前兼任本公司及其他公司之职务": "无。"
+                },
+                "No.2": {
+                    "职称": "独立董事",
+                    "姓名": "赵辛哲",
+                    "目前兼任本公司及其他公司之职务": "台橡股份有限公司独立董事。"
+                },
+                "No.3": {
+                    "职称": "委员",
+                    "姓名": "江惠中",
+                    "目前兼任本公司及其他公司之职务": "鑫特材料科技（股）公司法人董事代表人兼总经理、顺昶塑胶（股）公司监察人、台聚光电（股）公司法人监察人代表人、葳天科技(股)公司独立董事。"
+                }
+            }
+        }
+    },
+    "en": {
+        "薪酬委員會": {
+            "Content1": "The remuneration committee was established on 28th September 2011, and \"Remuneration Committee Organizational Rules\" were formulated.",
+            "Content2": "The Remuneration Committee has three members and currently consists of two independent directors and one independent professional. The goal is to assist the board of directors in formulating and regularly reviewing the policies, systems, standards, and structures of directors and managers' performance evaluation and remuneration.",
+            "Table1": {
+                "No.1": {
+                    "Title": "Independent director",
+                    "Name": "Lu-jun Sun",
+                    "Positions of concurrent company and other companies": "None"
+                },
+                "No.2": {
+                    "Title": "Independent director",
+                    "Name": "Xin-Zhe Zhao",
+                    "Positions of concurrent company and other companies": "Independent director of TSRC Corp."
+                },
+                "No.3": {
+                    "Title": "Committee member",
+                    "Name": "Hui-Zhong Jiang",
+                    "Positions of concurrent company and other companies": "Legal director representative and president of Thintec Materials Corp., Supervisor of Swanson Plasitc Corp., Legal person supervisor representative of USI optronics Corp., Independent director of ProLight Opto Technology Corp."
+                }
+            }
+        }
+    }
+}

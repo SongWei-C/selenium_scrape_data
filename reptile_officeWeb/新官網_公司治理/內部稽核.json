@@ -1,0 +1,176 @@
+{
+    "tw": {
+        "內部稽核": {
+            "Content1": "內部稽核組織",
+            "Content2": "稽核室為獨立單位，直接隸屬董事會，並配置適任之稽核主管 1 人及稽核人員 3 人。本公司「公司治理實務守則」第三條明訂稽核人員之任免、考評及薪資報酬，除稽核主管之任免依法令規定由審計委員會同意後提報董事會核定外，其餘項目由稽核主管簽報董事長核定。",
+            "Content3": "內部稽核運作",
+            "Content4": "1.稽核室依風險評估結果擬訂次一年度稽核計畫，至少包括「公開發行公司建立內部控制制度處理準則」所列應稽核項目，並提報董事會核定。",
+            "Content5": "2.稽核業務項目主要為年度稽核計畫及專案任務稽核，稽核結果檢附工作底稿及相關資料等作成稽核報告，並與受查單位主管充分溝通取得改善計畫及其預計完成日期，稽核人員應追蹤缺失項目至改善完成為止，至少按季作成追蹤報告呈核董事長及交付獨立董事查閱。",
+            "Content6": "3.稽核報告經董事長簽核後交付獨立董事查閱，並於審計委員會及董事會報告稽核執行及缺失項目改善情形，經由稽核作業之執行，以協助董事會及經理人履行內部控制與風險管理責任。",
+            "Content7": "4.本公司及子公司每年至少辦理一次內部控制制度自行評估作業，並由稽核室覆核各單位及子公司之自行評估報告，同稽核室所發現之內部控制缺失及異常事項改善情形，以作為董事會及經理人評估整體內部控制制度有效性及出具內部控制制度聲明書之主要依據。",
+            "Content8": "獨立董事與內部稽核主管之溝通",
+            "Content9": "本公司內部稽核主管定期每年至少四次於董事會及審計委員會議進行稽核業務報告，並單獨與獨立董事溝通稽核報告結果及缺失項目改善情形。 ",
+            "Content10": "獨立董事與內部稽核主管單獨溝通情形摘要(每年至少四次)",
+            "Table1": {
+                "No.1": {
+                    "日期": "110/08/06審計委員會",
+                    "溝通重點": "報告 110 年 5~7 月稽核業務執行項目及缺失改善追蹤情形報告。",
+                    "溝通情形及結果": "獨立董事無意見。"
+                },
+                "No.2": {
+                    "日期": "110/11/03審計委員會",
+                    "溝通重點": "1.報告 110 年 8~10 月稽核業務執行項目及缺失改善追蹤情形報告。2.重大稽核缺失及改善說明。3.審議「111 年度稽核計畫」。",
+                    "溝通情形及結果": "1.獨立董事無意見。2.獨立董事無意見。3.審議通過後提報董事會。"
+                },
+                "No.3": {
+                    "日期": "111/02/23審計委員會",
+                    "溝通重點": "1.報告 110 年 11~12 月及 111 年 1 月稽核業務執行項目及缺失改善追蹤情形。2.重大稽核缺失及改善說明。3.審議 110 年度「內部控制制度聲明書」。4.審議「內部控制制度」。",
+                    "溝通情形及結果": "1.獨立董事無意見。2.獨立董事無意見。3.審議通過後提報董事會。4.審議通過後提報董事會。"
+                },
+                "No.4": {
+                    "日期": "111/05/03審計委員會",
+                    "溝通重點": "1.報告 111 年 2~4 月稽核業務執行項目及缺失改善追蹤情形。2.重大稽核缺失及改善說明。3.審議「股務單位內部控制制度標準規範」。",
+                    "溝通情形及結果": "1.獨立董事無意見。2.獨立董事無意見。3.審議通過後提報董事會。"
+                },
+                "No.5": {
+                    "日期": "111/08/01審計委員會",
+                    "溝通重點": "1.報告 111 年 5~7 月稽核業務執行項目及缺失改善追蹤情形報告。2.重大稽核缺失及改善說明。3.修訂「分層負責準則」。",
+                    "溝通情形及結果": "1.獨立董事無意見。2.獨立董事無意見。3.審議通過後提報董事會。"
+                },
+                "No.6": {
+                    "日期": "111/10/27審計委員會",
+                    "溝通重點": "1.報告 111 年 7~9 月稽核業務執行項目及缺失改善追蹤情形報告。2.重大稽核缺失及改善說明。3.審議「112 年度稽核計畫」。4.審議「內部稽核實施細則」。",
+                    "溝通情形及結果": "1.獨立董事無意見。2.獨立董事無意見。3.審議通過後提報董事會。4.審議通過後提報董事會。"
+                },
+                "No.7": {
+                    "日期": "112/02/22審計委員會",
+                    "溝通重點": "1.報告 111 年 9~12 月及 112 年 1 月稽核業務執行項目及缺失改善追蹤情形。2.重大稽核缺失及改善說明。3.審議 111 年度「內部控制制度聲明書」。4.審議「內部控制制度」、「內部稽核辦法」、「內部稽核實施細則」、「內部控制自行評估作業辦法」 。5.審議「股務單位內部控制制度標準規範」。",
+                    "溝通情形及結果": "1.獨立董事無意見。2.獨立董事無意見。3.審議通過後提報董事會。4.審議通過後提報董事會。5.審議通過後提報董事會。"
+                },
+                "No.8": {
+                    "日期": "112/05/02審計委員會",
+                    "溝通重點": "1.報告 112 年 2~4 月稽核業務執行項目及缺失改善追蹤情形。2.重大稽核缺失及改善說明。3.審議 「股務單位內部控制制度標準規範」。",
+                    "溝通情形及結果": "1.獨立董事無意見。2.獨立董事無意見。3.審議通過後提報董事會。"
+                }
+            },
+            "Content11": "利害關係人申訴機制",
+            "Content12": "瀚宇彩晶對貪腐採零容忍，要求員工務必遵守從業人員之道德行為政策，同時提供廠商、客戶及利害關係人檢舉、申訴與建議之途徑，以維護商業道德與善盡企業社會責任。稽核室專線：(02)5555-0077 #1847電子信箱：stakeholder@hannstar.com"
+        }
+    },
+    "cn": {
+        "內部稽核": {
+            "Content1": "内部稽核组织",
+            "Content2": "稽核室为独立单位，直接隶属董事会，并配置适任之稽核主管 1 人及稽核人员 3 人。本公司「公司治理实务守则」第三条明订稽核人员之任免、考评及薪资报酬，除稽核主管之任免依法令规定由审计委员会同意后提报董事会核定外，其余项目由稽核主管签报董事长核定。",
+            "Content3": "内部稽核运作",
+            "Content4": "1.稽核室依风险评估结果拟订次一年度稽核计划，至少包括「公开发行公司建立内部控制制度处理准则」所列应稽核项目，并提报董事会核定。",
+            "Content5": "2.稽核业务项目主要为年度稽核计划及项目任务稽核，稽核结果检附工作底稿及相关资料等作成稽核报告，并与受查单位主管充分沟通取得改善计划及其预计完成日期，稽核人员应追踪缺失项目至改善完成为止，至少按季作成追踪报告呈核董事长及交付独立董事查阅。",
+            "Content6": "3.稽核报告经董事长签核后交付独立董事查阅，并于审计委员会及董事会报告稽核执行及缺失项目改善情形，经由稽核作业之执行，以协助董事会及经理人履行内部控制与风险管理责任。",
+            "Content7": "4.本公司及子公司每年至少办理一次内部控制制度自行评估作业，并由稽核室复核各单位及子公司之自行评估报告，同稽核室所发现之内部控制缺失及异常事项改善情形，以作为董事会及经理人评估整体内部控制制度有效性及出具内部控制制度声明书之主要依据。",
+            "Content8": "独立董事与内部稽核主管单独沟通情形摘要(每年至少四次)",
+            "Content9": "本公司内部稽核主管定期每年至少四次于董事会及审计委员会议进行稽核业务报告，并单独与独立董事沟通稽核报告结果及缺失项目改善情形。",
+            "Content10": "独立董事与内部稽核主管单独沟通情形摘要(每年至少四次)",
+            "Table1": {
+                "No.1": {
+                    "日期": "2021/08/06  审计委员会",
+                    "沟通重点": "报告 2021 年 5~7 月稽核业务执行项目及缺失改善追踪情形报告。",
+                    "沟通情形及结果": "独立董事无意见。"
+                },
+                "No.2": {
+                    "日期": "2021/11/03  审计委员会",
+                    "沟通重点": "1.报告 2021 年 8~10 月稽核业务执行项目及缺失改善追踪情形报告。  2.重大稽核缺失及改善说明。  3.审议「2022 年度稽核计划」。",
+                    "沟通情形及结果": "1.独立董事无意见。  2.独立董事无意见。  3.审议通过后提报董事会。"
+                },
+                "No.3": {
+                    "日期": "2022/02/23  审计委员会",
+                    "沟通重点": "1.报告 2021 年 11~12 月及 2022 年 1 月稽核业务执行项目及缺失改善追踪情形。  2.重大稽核缺失及改善说明。  3.审议 2021 年度「内部控制制度声明书」。  4.审议「内部控制制度」。",
+                    "沟通情形及结果": "1.独立董事无意见。  2.独立董事无意见。  3.审议通过后提报董事会。  4.审议通过后提报董事会。"
+                },
+                "No.4": {
+                    "日期": "2022/05/03  审计委员会",
+                    "沟通重点": "1.报告 2022 年 2~4 月稽核业务执行项目及缺失改善追踪情形。  2.重大稽核缺失及改善说明。  3.审议「股务单位内部控制制度标准规范」。",
+                    "沟通情形及结果": "1.独立董事无意见。  2.独立董事无意见。  3.审议通过后提报董事会。"
+                },
+                "No.5": {
+                    "日期": "2022/08/01  审计委员会",
+                    "沟通重点": "1.报告 2022 年 5~7 月稽核业务执行项目及缺失改善追踪情形报告。  2.重大稽核缺失及改善说明。  3.修订「分层负责准则」。",
+                    "沟通情形及结果": "1.独立董事无意见。  2.独立董事无意见。  3.审议通过后提报董事会。"
+                },
+                "No.6": {
+                    "日期": "2022/10/27  审计委员会",
+                    "沟通重点": "1.报告 2022 年 7~9 月稽核业务执行项目及缺失改善追踪情形报告。  2.重大稽核缺失及改善说明。  3.审议「2023 年度稽核计划」。  4.审议「内部稽核实施细则」。",
+                    "沟通情形及结果": "1.独立董事无意见。  2.独立董事无意见。  3.审议通过后提报董事会。  4.审议通过后提报董事会。"
+                },
+                "No.7": {
+                    "日期": "2023/02/22  审计委员会",
+                    "沟通重点": "1.报告 2022 年 9~12 月及 2023 年 1 月稽核业务执行项目及缺失改善追踪情形。  2.重大稽核缺失及改善说明。  3.审议 2022 年度「内部控制制度声明书」。  4.审议「内部控制制度」、「内部稽核办法」、「内部稽核实施细则」、「内部控制自行评估作业办法」。  5.审议「股务单位内部控制制度标准规范」。",
+                    "沟通情形及结果": "1.独立董事无意见。  2.独立董事无意见。  3.审议通过后提报董事会。  4.审议通过后提报董事会。  5.审议通过后提报董事会。"
+                },
+                "No.8": {
+                    "日期": "2023/05/02  审计委员会",
+                    "沟通重点": "1.报告 2023 年 2~4 月稽核业务执行项目及缺失改善追踪情形。  2.重大稽核缺失及改善说明。  3.审议「股务单位内部控制制度标准规范」。",
+                    "沟通情形及结果": "1.独立董事无意见。  2.独立董事无意见。  3.审议通过后提报董事会。"
+                }
+            },
+            "Content11": "利害关系人申诉机制",
+            "Content12": "瀚宇彩晶对贪腐采零容忍，要求员工务必遵守从业人员之道德行为政策，同时提供厂商、客户及利害关系人检举、申诉与建议之途径，以维护商业道德与善尽企业社会责任。稽核室专线：+886-2-5555-0077 #1847电子信箱：stakeholder@hannstar.com"
+        }
+    },
+    "en": {
+        "內部稽核": {
+            "Content1": "Internal Audit System",
+            "Content2": "Audit office is an independent organization, which is directly subordinate to the board, with sufficient dedicated internal auditors, including one supervisor and three auditors. According to Article 3 of Corporate Governance Principles, the manning, performance evaluation system, and remuneration of internal auditors shall be submitted by the audit supervisor to Chairman for approval. And the manning of chief internal auditor is approved by the audit committee and answered by the board of directors.",
+            "Content3": "Internal Audit Missions",
+            "Content4": "1. The audit office assesses the risks of the whole company and formulates annual audit plans (at lease including the items in  Regulations Governing Establishment of Internal Control Systems by Public Companies), which should be answerable to the board. ",
+            "Content5": "2. The annual audit and mission audit should be basically reviewed, including the related attachments and information of results. The audit office should communicate with the directors of the individual unit about improvement suggestions and due date. The audit office is responsible for the implementation of improvement.This information will also serve as a reference for reviews and revisions of the internal control system, which shall also be reported to the board on a quarterly basis. ",
+            "Content6": "3. After these plans have been approved by the board, on-site examinations and written reviews will be conducted and improvement suggestions are provided for individual units as deemed necessary to guarantee an effective and continued implementation of the internal control system. ",
+            "Content7": "4. HannStar and subsidiaries should review internal control system at least on an annual basis. The audit office monitors and assists individual units in assessments and inspections of the internal control system to ensure that the board and managers are aware of the level of goal achievement in the fields of operational results and efficiency, financial reports are reliable, and the company complies with relevant decrees.",
+            "Content8": "Communications between independent directors/ chief internal auditor",
+            "Content9": "Individual meetings between independent directors and chief internal auditor are convened regularly at least four times each year.  Chief internal auditor makes independent reports to the independent directors regarding about audit results and improvements.",
+            "Content10": "Abstracts of individual meetings between independent directors/chief internal auditor(at least four times each year) ",
+            "Table1": {
+                "No.1": {
+                    "Meeting date": "2021/08/06  Audit Committee",
+                    "Descriptions of the major matters": "The findings of the internal audit reports from May to July of 2021.",
+                    "Communication status and implementation results": "No objections from independent directors."
+                },
+                "No.2": {
+                    "Meeting date": "2021/11/03  Audit Committee",
+                    "Descriptions of the major matters": "1. The findings of the internal audit reports from Aug to Oct of 2021.  2. Report the improvements of major internal audit deficiencies and abnormalities.  3. Review and approval of Audit Plan for 2022.",
+                    "Communication status and implementation results": "1. No objections from independent directors.  2. No objections from independent directors.  3. After approval by the audit committee, the statement was reviewed by the board."
+                },
+                "No.3": {
+                    "Meeting date": "2022/02/23  Audit Committee",
+                    "Descriptions of the major matters": "1. The findings of the internal audit reports from Nov to Dec of 2021 and Jan of 2022.  2. Report the improvements of major internal audit deficiencies and abnormalities.  3. Statement of Internal Control System for FY 2021.  4. Amendment to the Internal Control Systems.",
+                    "Communication status and implementation results": "1. No objections from independent directors.  2. No objections from independent directors.  3. After approval by the audit committee, the statement was reviewed by the board.  4. After approval by the audit committee, the statement was reviewed by the board."
+                },
+                "No.4": {
+                    "Meeting date": "2022/05/03  Audit Committee",
+                    "Descriptions of the major matters": "1. The findings of the internal audit reports from Feb to Apr of 2022.  2. Report the improvements of major internal audit deficiencies and abnormalities.  3. Rule of Investment Units Internal Control.",
+                    "Communication status and implementation results": "1. No objections from independent directors.  2. No objections from independent directors.  3. After approval by the audit committee, the statement was reviewed by the board."
+                },
+                "No.5": {
+                    "Meeting date": "2022/08/01  Audit Committee",
+                    "Descriptions of the major matters": "1.The findings of the internal audit reports from May to July of 2022.  2. Report the improvements of major internal audit deficiencies and abnormalities.  3. Amendment to the Rule of Hierarchical Responsibilities.",
+                    "Communication status and implementation results": "1. No objections from independent directors.  2. No objections from independent directors.  3. After approval by the audit committee, the statement was reviewed by the board."
+                },
+                "No.6": {
+                    "Meeting date": "2022/10/27  Audit Committee",
+                    "Descriptions of the major matters": "1. The findings of the internal audit reports from July to Sep of 2022.  2. Report the improvements of major internal audit deficiencies and abnormalities.  3. Review and approval of Audit Plan for 2023.  4. Amendment to the Internal Audit Implementation Rules.",
+                    "Communication status and implementation results": "1. No objections from independent directors.  2. No objections from independent directors.  3. After approval by the audit committee, the statement was reviewed by the board.  4. After approval by the audit committee, the statement was reviewed by the board."
+                },
+                "No.7": {
+                    "Meeting date": "2023/02/22  Audit Committee",
+                    "Descriptions of the major matters": "1. The findings of the internal audit reports from Sep to Dec of 2022 and Jan of 2023.  2. Report the improvements of major internal audit deficiencies and abnormalities.  3. Statement of Internal Control System for FY 2022.  4. Amendment to the Internal Control Systems, Internal Audit Execution Rules ,Internal Audit Implementation Rules and Self-assessments of Internal Control Systems Rules.  5. Rule of Investment Units Internal Control.",
+                    "Communication status and implementation results": "1. No objections from independent directors.  2. No objections from independent directors.  3. After approval by the audit committee, the statement was reviewed by the board.  4. After approval by the audit committee, the statement was reviewed by the board.  5. After approval by the audit committee, the statement was reviewed by the board."
+                },
+                "No.8": {
+                    "Meeting date": "2023/05/02  Audit Committee",
+                    "Descriptions of the major matters": "1. The findings of the internal audit reports from Feb to Apr of 2023.  2. Report the improvements of major internal audit deficiencies and abnormalities.  3. Rule of Investment Units Internal Control.",
+                    "Communication status and implementation results": "1. No objections from independent directors.  2. No objections from independent directors.  3. After approval by the audit committee, the statement was reviewed by the board."
+                }
+            },
+            "Content11": "Stakeholder Complaint and Grievance Channels",
+            "Content12": "HannStar has zero tolerance for corruption incidents. We require our employees to abide by our ethical policies, and also provide channels for our suppliers, clients, and stakeholders to submit reports, grievances, and suggestions to maintain our business ethics and fulfill our corporate social responsibilities.Audit Office：+886-2-5555-0077 #1847E-mail：stakeholder@hannstar.com"
+        }
+    }
+}

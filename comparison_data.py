@@ -309,11 +309,13 @@ if __name__ == '__main__':
                     print('\tTable Error')
                     print('\t-> Error_Message:', log['table_logging']['error_message'])
                     for error_info in log['table_logging']['error_message']:
+                        error_info = '@官網保護程式 '+ error_info
                         ta.send_alert_to_teams(message=error_info, val_url=log['url'])
                 if not log['content_logging']['verify']:
                     print('\tContent Error')
                     print('\t-> Error_Message:', log['content_logging']['error_message'])
                     for error_info in log['content_logging']['error_message']:
+                        error_info = '@官網保護程式 ' + error_info
                         ta.send_alert_to_teams(message=error_info, val_url=log['url'])
 
                 print()

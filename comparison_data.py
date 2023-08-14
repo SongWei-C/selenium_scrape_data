@@ -1,7 +1,7 @@
 import json
 import logging
 from Teams_webhook import TeamsAlerter
-
+import time
 class Data_Verification:
     def __init__(self, std_sample, verify_data):
         self.total_message = []
@@ -21,29 +21,6 @@ class Data_Verification:
             raise TypeError('std_sample and verify_data must be str(Json file path) or dict types')
 
     def verification_with_json(self,):
-        def check_diff_row(sample, verify_data):
-            error_dict = {
-                'error_category': [],
-                'error_index': []
-            }
-            if len(sample) != len(verify_data):
-                error_dict['error_category'].append('ITEM_NUM_NOT_MATCH')
-                len_min = min(len(sample), len(verify_data))
-                for i in range(len_min):
-                    if sample[i] != verify_data[i]:
-                        error_dict['error_category'].append('CONTENT_NOT_SAME')
-                        error_dict['error_index'].append(i)
-                        # print(sample[i])
-                        # print(verify_data[i])
-            else:
-                for i in range(len(verify_data)):
-                    if sample[i] != verify_data[i]:
-                        error_dict['error_category'].append('CONTENT_NOT_SAME')
-                        error_dict['error_index'].append(i)
-                        # print(sample[i])
-                        # print(verify_data[i])
-            return error_dict
-
         report_dict = {
             'verification': False,
             'logging':[],
@@ -132,7 +109,7 @@ class Data_Verification:
                                                     if std_th_ele == val_th_ele:
                                                         continue
                                                     else:
-                                                        message = '[Content different]:\nIn '+ str(i)+'Table ' \
+                                                        message = '[Table Content different]:\nIn '+ str(i)+'Table ' \
                                                                   + str(j) + 'Thead Row ' + str(k)+'<th> ->\n' \
                                                                   + 'Standard sample(' + std_lang_obj['url'] + '): '\
                                                                   + std_th_ele +'\n'\
@@ -195,7 +172,7 @@ class Data_Verification:
                                                     if std_th_ele == val_th_ele:
                                                         continue
                                                     else:
-                                                        message = '[Content different]:\nIn ' + str(i) + 'Table ' \
+                                                        message = '[Table Content different]:\nIn ' + str(i) + 'Table ' \
                                                                   + str(j) + 'Tbody Row ' + str(k) + '<th> ->\n' \
                                                                   + 'Standard sample(' + std_lang_obj['url'] + '): ' \
                                                                   + std_th_ele + '\n' \
@@ -238,7 +215,7 @@ class Data_Verification:
                                                     if std_td_ele == val_td_ele:
                                                         continue
                                                     else:
-                                                        message = '[Content different]:\nIn ' + str(
+                                                        message = '[Table Content different]:\nIn ' + str(
                                                             i) + 'Table ' \
                                                                   + str(j) + 'Tbody Row ' + str(
                                                             k) + '<td> ->\n' \
@@ -262,8 +239,8 @@ class Data_Verification:
                 temp_log['content_logging']['verify'] = False
                 temp_log['content_logging']['error_message'] = []
 
-                message = '[Content different]:\nStandard sample('+std_lang_obj['url']+'): '+ str(std_lang_obj['content']) \
-                            + '\n\nValidation Data(' + verify_lang_obj['url'] +'): ' + str(verify_lang_obj['content'])
+                message = '[Content different]:\nStandard sample('+std_lang_obj['url']+'):\n'+ str(std_lang_obj['content']) \
+                            + '\n\nValidation Data(' + verify_lang_obj['url'] +'):\n' + str(verify_lang_obj['content'])
                 temp_log['content_logging']['error_message'].append(message)
                 # print('content!')
                 # print(std_lang_obj['content'])
@@ -285,17 +262,130 @@ class Data_Verification:
 
         return report_dict
 
+class Reptile_Data_Verification:
+    def __init__(self, std_sample, verify_data):
+        self.total_message = []
+        if isinstance(std_sample, str) and isinstance(verify_data, str):
+            with open(std_sample, newline='', encoding='utf-8') as jsonfile:
+                self.std_sample:dict = json.load(jsonfile)
+            with open(verify_data, newline='', encoding='utf-8') as jsonfile:
+                self.verify_data:dict = json.load(jsonfile)
+        elif isinstance(std_sample, dict) and isinstance(verify_data, dict):
+            self.std_sample:dict = std_sample
+            self.verify_data:dict = verify_data
+        elif isinstance(std_sample, str) and isinstance(verify_data, dict):
+            with open(std_sample, newline='', encoding='utf-8') as jsonfile:
+                self.std_sample:dict = json.load(jsonfile)
+            self.verify_data:dict = verify_data
+        else:
+            raise TypeError('std_sample and verify_data must be str(Json file path) or dict types')
+
+    def verification_with_json(self):
+        report_dict = {
+            'verification': True,
+            'logging': []
+        }
+        for lang_code in self.std_sample.keys():
+            temp_log = {
+                'language': lang_code,
+                'verification': True,
+                'message': []
+            }
+
+            std_lang_dict = self.std_sample[lang_code]
+            val_lang_dict = self.verify_data[lang_code]
+
+            for key in std_lang_dict.keys():
+                print()
+                temp_log['url'] = val_lang_dict[key]['url']
+
+                for content_idx, content_str in std_lang_dict[key].items():
+                    # Content different
+                    if isinstance(std_lang_dict[key][content_idx], str):
+                        if std_lang_dict[key][content_idx] != val_lang_dict[key][content_idx]:
+                            message = '[Content different]:\nStandard sample: ' + str(std_lang_dict[key][content_idx]) \
+                                      + '\n\nValidation Data(' + val_lang_dict[key]['url'] + '): ' + str(val_lang_dict[key][content_idx])
+                            # print('language:', lang_code)
+                            # print('url:', self.verify_data[lang_code][key]['url'])
+                            # print('\tContent Error')
+                            # print('\t->', message)
+                            temp_log['verification'] = False
+                            report_dict['verification'] = False
+                            temp_log['message'].append(message)
 
 
-if __name__ == '__main__':
-    # std_data = './scrape_data/previous_website_about_certification.json'
-    # verify_data = './scrape_data/magento_about_certification.json'
-    # dv = Data_Verification(std_sample=std_data, verify_data=verify_data)
-    # final_report = dv.verification_with_json()
+                    elif isinstance(std_lang_dict[key][content_idx], dict):
+                        std_table = std_lang_dict[key][content_idx]
+                        val_table = val_lang_dict[key][content_idx]
+
+                        if len(std_table.keys()) != len(val_table.keys()):
+                            message = '[The number of Table rows different]: \nSample table row num: ' + \
+                                      str(len(std_table.keys())) + '\n\nValidation Data(' + val_lang_dict[key]['url'] + ') table row num: ' +\
+                                        str(len(val_table.keys()))
+                            # print('language:', lang_code)
+                            # print('url:', self.verify_data[lang_code][key]['url'])
+                            # print('\tTable row num Error')
+                            # print('\t->', message)
+                            temp_log['verification'] = False
+                            report_dict['verification'] = False
+                            temp_log['message'].append(message)
+                        else:
+                            for row, no in enumerate(std_table.keys()):
+                                if list(std_table[no].keys()) != list(val_table[no].keys()):
+                                    message = '[Table column different]:\nStandard sample table column: ' + str(
+                                        list(std_table[no].keys())) \
+                                              + '\n\nValidation Data(' + val_lang_dict[key]['url'] + ') table column: ' + str(
+                                        list(val_table[no].keys()))
+                                    # print('language:', lang_code)
+                                    # print('url:', self.verify_data[lang_code][key]['url'])
+                                    # print('\tTable column Error')
+                                    # print('\t->', message)
+                                    temp_log['verification'] = False
+                                    report_dict['verification'] = False
+                                    temp_log['message'].append(message)
+                                else:
+                                    if list(std_table[no].values()) != list(val_table[no].values()):
+                                        for col in std_table[no].keys():
+                                            if std_table[no][col] != val_table[no][col]:
+                                                message = '[Table row Content different]: In ' + str(row) + 'Row, column:' + str(col)+\
+                                                          '\nStandard sample table content:\n' + str(std_table[no][col]) \
+                                                          + '\n\nValidation Data(' + val_lang_dict[key][
+                                                              'url'] + ') table content:\n' + str(
+                                                    val_table[no][col])
+                                                # print('\nlanguage:', lang_code)
+                                                # print('url:', self.verify_data[lang_code][key]['url'])
+                                                # print('\tTable row content Error')
+                                                # print('\trow:', row)
+                                                # print('\t->', message)
+                                                temp_log['verification'] = False
+                                                report_dict['verification'] = False
+                                                temp_log['message'].append(message)
+
+            report_dict['logging'].append(temp_log)
+
+        return report_dict
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def compare_data():
+
     ta = TeamsAlerter()
-    files = ['about_team', 'about_family', 'about_certification', 'about_stronghold']
-    results = []
-    for f in files:
+
+    about_us_files = ['about_team', 'about_family', 'about_certification', 'about_stronghold']
+    about_us_results = []
+    for f in about_us_files:
+        time.sleep(1)
         s_data = './scrape_data/previous_website_' + f + '.json'
         v_data = './scrape_data/www.hannstar.com_'+ f + '.json'
         dv = Data_Verification(std_sample=s_data, verify_data=v_data)
@@ -309,19 +399,43 @@ if __name__ == '__main__':
                     print('\tTable Error')
                     print('\t-> Error_Message:', log['table_logging']['error_message'])
                     for error_info in log['table_logging']['error_message']:
-                        error_info = '@官網保護程式 '+ error_info
+                        error_info = error_info
                         ta.send_alert_to_teams(message=error_info, val_url=log['url'])
                 if not log['content_logging']['verify']:
                     print('\tContent Error')
                     print('\t-> Error_Message:', log['content_logging']['error_message'])
                     for error_info in log['content_logging']['error_message']:
-                        error_info = '@官網保護程式 ' + error_info
+                        error_info = error_info
                         ta.send_alert_to_teams(message=error_info, val_url=log['url'])
 
                 print()
             print('\n--------------------------------')
 
-        results.append(final_report)
+        about_us_results.append(final_report)
+
+    ESG_files = ['董事會名單', '審計委員會', '內部稽核', '薪酬委員會', '誠信經營']#
+    ESG_results = []
+    for f in ESG_files:
+        time.sleep(1)
+        s_data = './scrape_data/previous_website_' + f + '.json'
+        v_data = './scrape_data/www.hannstar.com_' + f + '.json'
+        dv = Reptile_Data_Verification(std_sample=s_data, verify_data=v_data)
+        final_report = dv.verification_with_json()
+        if not final_report['verification']:
+            print('#', f)
+            for log in final_report['logging']:
+                if not log['verification']:
+                    print('language:', log['language'])
+                    print('url:', log['url'])
+
+                    for error_info in log['message']:
+                        print(error_info)
+                        ta.send_alert_to_teams(message=error_info, val_url=log['url'])
+                print()
+            print('\n--------------------------------')
+
+        ESG_results.append(final_report)
+
 
 
 

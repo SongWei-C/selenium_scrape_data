@@ -15,8 +15,7 @@ class TeamsAlerter:
         print(err)
 
     def send_alert_to_teams(self, message:str='', val_url:str=''):
-        agent_url = 'https://hannstar.webhook.office.com/webhookb2/d04a9a4a-d535-4fc3-ab6a-0e8a69247128@4385aed4-a143-4812-8d76-480d22a7505f/IncomingWebhook/5510dced4dfc4acb9eab871b65ddd427/ac26c2d0-4ca1-4338-bf22-31bfad7cd462'
-
+        agent_url = 'https://hannstar.webhook.office.com/webhookb2/d04a9a4a-d535-4fc3-ab6a-0e8a69247128@4385aed4-a143-4812-8d76-480d22a7505f/IncomingWebhook/befa9ff10e25469fb67d1777aa8ddf5b/ac26c2d0-4ca1-4338-bf22-31bfad7cd462'
         json_body = self.json_template
 
         message = message.replace('<', '\\\<').replace('>', '\\\>').replace('\n', '<br />').replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;').replace(',', '\\\,').replace('"', '\\\"')

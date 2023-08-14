@@ -89,11 +89,12 @@ class CustomerScraper:
             LANGUAGE):
 
         url = "https://www.hannstar.com/{}/sustainability/governance".format(LANGUAGE)
+        self.driver.implicitly_wait(1)
         self.driver.get(url)
-
-        time.sleep(5)
-        self.driver.get(url)
-
+        time.sleep(0.5)
+        if LANGUAGE != 'tw':
+            self.driver.get(url)
+            time.sleep(0.5)
         Dict_json = {}
 
         # ----------------------------- 內容1 ----------------------------------------------------
@@ -106,6 +107,7 @@ class CustomerScraper:
                                                 "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[1]")
 
         no = 1
+        Dict_json['url'] = url
         self.soup_get_text(table_element, no, Dict_json)
 
         # ----------------------------- 表格1 ----------------------------------------------------
@@ -131,10 +133,12 @@ class CustomerScraper:
             LANGUAGE):
 
         url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Audit".format(LANGUAGE)
+        self.driver.implicitly_wait(1)
         self.driver.get(url)
-
-        time.sleep(5)
-        self.driver.get(url)
+        time.sleep(0.5)
+        if LANGUAGE != 'tw':
+            self.driver.get(url)
+            time.sleep(0.5)
 
         Dict_json = {}
 
@@ -149,7 +153,7 @@ class CustomerScraper:
         else:
             table_element = self.driver.find_element('xpath',
                                                 "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div[1]/p/span[4]")
-
+        Dict_json['url'] = url
         no = 1
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -215,13 +219,15 @@ class CustomerScraper:
             LANGUAGE):
 
         url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Salary".format(LANGUAGE)
+        self.driver.implicitly_wait(1)
         self.driver.get(url)
-
-        time.sleep(5)
-        self.driver.get(url)
+        time.sleep(0.5)
+        if LANGUAGE != 'tw':
+            self.driver.get(url)
+            time.sleep(0.5)
 
         Dict_json = {}
-
+        Dict_json['url'] = url
         # ----------------------------- 內容1 ----------------------------------------------------
         time.sleep(5)
         if (LANGUAGE == 'en'):
@@ -266,13 +272,15 @@ class CustomerScraper:
             LANGUAGE):
 
         url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Check".format(LANGUAGE)
+        self.driver.implicitly_wait(1)
         self.driver.get(url)
-
-        time.sleep(5)
-        self.driver.get(url)
+        time.sleep(0.5)
+        if LANGUAGE != 'tw':
+            self.driver.get(url)
+            time.sleep(0.5)
 
         Dict_json = {}
-
+        Dict_json['url'] = url
         # ----------------------------- 內容1 ----------------------------------------------------
         time.sleep(2)
         if (LANGUAGE == 'cn'):
@@ -331,7 +339,7 @@ class CustomerScraper:
         time.sleep(2)
         if (LANGUAGE == 'en'):
             table_element = self.driver.find_element('xpath',
-                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[6]/span/span")
+                                                "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[6]")
         else:
             table_element = self.driver.find_element('xpath',
                                                 "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[4]/span/span")
@@ -460,13 +468,15 @@ class CustomerScraper:
             LANGUAGE):
 
         url = "https://www.hannstar.com/{}/sustainability/governance?esgTab=Operate".format(LANGUAGE)
+        self.driver.implicitly_wait(1)
         self.driver.get(url)
-
-        time.sleep(5)
-        self.driver.get(url)
+        time.sleep(0.5)
+        if LANGUAGE != 'tw':
+            self.driver.get(url)
+            time.sleep(0.5)
 
         Dict_json = {}
-
+        Dict_json['url'] = url
         # ----------------------------- 內容1 ----------------------------------------------------
         time.sleep(2)
         if (LANGUAGE == 'cn'):
@@ -1044,7 +1054,7 @@ class CustomerScraper:
         """Close the driver"""
         self.driver.quit()
 
-if __name__ == '__main__':
+def scrape_website():
     '''magento'''
     # 爬蟲物件實體化
     new_cs = CustomerScraper(domain_url='https://www.hannstar.com/')

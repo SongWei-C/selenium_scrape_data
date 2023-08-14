@@ -1,14 +1,13 @@
 {
     "tw": {
         "薪酬委員會": {
-            "url": "https://www.hannstar.com/tw/sustainability/governance?esgTab=Salary",
             "Content1": "本公司於100年9月28日設立「薪資報酬委員會」，訂定「薪資報酬委員會組織規程」。",
             "Content2": "薪資報酬委員會共有三名成員，目前由2名獨立董事及1名獨立專業人士組成，旨在協助董事會訂定並定期檢討董事及經理人績效評估與薪資報酬之政策、制度、標準與結構。",
             "Table1": {
                 "No.1": {
                     "職稱": "獨立董事",
                     "姓名": "孫璐筠",
-                    "目前兼任本公司及其他公司之職務": "無。"
+                    "目前兼任本公司及其他公司之職務": "無"
                 },
                 "No.2": {
                     "職稱": "獨立董事",
@@ -25,8 +24,7 @@
     },
     "cn": {
         "薪酬委員會": {
-            "url": "https://www.hannstar.com/cn/sustainability/governance?esgTab=Salary",
-            "Content1": "本公司于100年9月28日设立「薪资报酬委员会」，订定「薪资报酬委员会组织规程」。",
+            "Content1": "本公司于100年9月28日设立「薪资报酬委员会」，订定「薪资报酬委员会组织规程」。 ",
             "Content2": "薪资报酬委员会共有三名成员，目前由2名独立董事及1名独立专业人士组成，旨在协助董事会订定并定期检讨董事及经理人绩效评估与薪资报酬之政策、制度、标准与结构。",
             "Table1": {
                 "No.1": {
@@ -49,8 +47,7 @@
     },
     "en": {
         "薪酬委員會": {
-            "url": "https://www.hannstar.com/en/sustainability/governance?esgTab=Salary",
-            "Content1": "The remuneration committee was established on 28th September 2011, and \"Remuneration Committee Organizational Rules\" were formulated.",
+            "Content1": "The remuneration committee was established on 28th September 2011, and \"Remuneration Committee Organizational Rules\" were formulated. ",
             "Content2": "The Remuneration Committee has three members and currently consists of two independent directors and one independent professional. The goal is to assist the board of directors in formulating and regularly reviewing the policies, systems, standards, and structures of directors and managers' performance evaluation and remuneration.",
             "Table1": {
                 "No.1": {
@@ -66,7 +63,7 @@
                 "No.3": {
                     "Title": "Committee member",
                     "Name": "Hui-Zhong Jiang",
-                    "Positions of concurrent company and other companies": "Legal director representative and president of Thintec Materials Corp., Supervisor of Swanson Plasitc Corp., Legal person supervisor representative of USI optronics Corp., Independent director of ProLight Opto Technology Corp."
+                    "Positions of concurrent company and other companies": "Legal director representative and president of Thintec Materials Corp., Supervisor of Swanson Plasitc Corp., Legal person supervisor representative of USI optronics Corp.、Independent director of ProLight Opto Technology Corp."
                 }
             }
         }

@@ -51,8 +51,8 @@ class CustomerScraper:
             } for lang in self.language_codes
         }
         # 新官網上線後要拿掉
-        if self.domain_url == 'https://www.hannstar.com/':
-            financial_profile_dict['tw']['url'] = str(financial_profile_dict['tw']['url']).replace('/tw', '')
+        # if self.domain_url == 'https://www.hannstar.com/':
+        #     financial_profile_dict['tw']['url'] = str(financial_profile_dict['tw']['url']).replace('/tw', '')
 
         print('\n- page financial_profile -')
         # 爬取表格資料
@@ -98,7 +98,7 @@ class CustomerScraper:
                                 continue
                             else:
                                 for th in ths:
-                                    tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                    tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '').replace('&nbsp;', ''))
                                     print(th.text)
                                 table_dict['thead'].append(tr)
                                 print('------------------')
@@ -126,7 +126,7 @@ class CustomerScraper:
                                     tr['th'] = None
                                 else:
                                     for th in ths:
-                                        tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                        tr['th'].append(str(th.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                                         print(th.text)
                             except NoSuchElementException:
                                 print('Not find th')
@@ -140,7 +140,7 @@ class CustomerScraper:
 
                             else:
                                 for td in tds:
-                                    tr['td'].append(str(td.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                    tr['td'].append(str(td.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                                     print(td.text)
 
                             if tr['th'] == None and tr['td'] == None:
@@ -261,7 +261,7 @@ class CustomerScraper:
                             else:
                                 for th in ths:
                                     soup = BeautifulSoup(th.get_attribute("innerHTML"), 'html.parser')
-                                    tr['th'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                    tr['th'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                                     print(soup.text)
                                 table_dict['thead'].append(tr)
                                 print('------------------')
@@ -290,7 +290,7 @@ class CustomerScraper:
                                 else:
                                     for th in ths:
                                         soup = BeautifulSoup(th.get_attribute("innerHTML"), 'html.parser')
-                                        tr['th'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                        tr['th'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                                         print(soup.text)
                             except NoSuchElementException:
                                 print('Not find th')
@@ -305,7 +305,7 @@ class CustomerScraper:
                             else:
                                 for td in tds:
                                     soup = BeautifulSoup(td.get_attribute("innerHTML"), 'html.parser')
-                                    tr['td'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                                    tr['td'].append(str(soup.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                                     print(soup.text)
 
                             if tr['th'] == None and tr['td'] == None:
@@ -353,9 +353,9 @@ class CustomerScraper:
                         idx_content = content.find_element(
                             By.XPATH, xpath+'['+str(i+1)+']'
                         )
-                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
-                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '')!= '':
-                            element['content'].append(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
+                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
+                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '')!= '':
+                            element['content'].append(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                     if element['content'] == []:
                         element['content'] = None
                 else:
@@ -367,9 +367,9 @@ class CustomerScraper:
                         idx_content = content.find_element(
                             By.XPATH, xpath + '[' + str(i + 1) + ']'
                         )
-                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', ''))
-                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '') != '':
-                            text += str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '')
+                        print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
+                        if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '') != '':
+                            text += str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '')
                     if text != '':
                         element['content']= text
                     else:

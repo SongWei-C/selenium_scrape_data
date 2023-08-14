@@ -385,7 +385,6 @@ def compare_data():
     about_us_files = ['about_team', 'about_family', 'about_certification', 'about_stronghold']
     about_us_results = []
     for f in about_us_files:
-        time.sleep(1)
         s_data = './scrape_data/previous_website_' + f + '.json'
         v_data = './scrape_data/www.hannstar.com_'+ f + '.json'
         dv = Data_Verification(std_sample=s_data, verify_data=v_data)
@@ -405,6 +404,7 @@ def compare_data():
                     print('\tContent Error')
                     print('\t-> Error_Message:', log['content_logging']['error_message'])
                     for error_info in log['content_logging']['error_message']:
+                        time.sleep(5)
                         error_info = error_info
                         ta.send_alert_to_teams(message=error_info, val_url=log['url'])
 
@@ -416,7 +416,6 @@ def compare_data():
     ESG_files = ['董事會名單', '審計委員會', '內部稽核', '薪酬委員會', '誠信經營']#
     ESG_results = []
     for f in ESG_files:
-        time.sleep(1)
         s_data = './scrape_data/previous_website_' + f + '.json'
         v_data = './scrape_data/www.hannstar.com_' + f + '.json'
         dv = Reptile_Data_Verification(std_sample=s_data, verify_data=v_data)
@@ -430,13 +429,13 @@ def compare_data():
 
                     for error_info in log['message']:
                         print(error_info)
+                        time.sleep(5)
                         ta.send_alert_to_teams(message=error_info, val_url=log['url'])
                 print()
             print('\n--------------------------------')
 
         ESG_results.append(final_report)
 
-compare_data()
 
 
 

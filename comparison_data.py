@@ -436,6 +436,7 @@ def compare_data():
 
         ESG_results.append(final_report)
 
+compare_data()
 
 
 

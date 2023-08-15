@@ -589,10 +589,10 @@ class CustomerScraper:
                                                 '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[9]')
         elif (LANGUAGE == 'tw'):
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[6]/span/span')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[6]')
         else:
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[7]/span/span')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[7]')
 
         no = 8
         self.soup_get_text(table_element, no, Dict_json)

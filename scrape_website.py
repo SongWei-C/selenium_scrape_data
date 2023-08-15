@@ -1058,7 +1058,7 @@ def scrape_website():
     '''magento'''
     # 爬蟲物件實體化
     new_cs = CustomerScraper(domain_url='https://www.hannstar.com/')
-    # 關於翰宇彩晶
+    # # 關於翰宇彩晶
     new_cs.scrape_about_team() # 關於團隊
     new_cs.scrape_about_family(list_content=True,xpath='//div[@class="Graphics3Content"]/div',output_json=True) # 關於關係企業
     new_cs.scrape_about_certification(content_xpath='//div[@class="D360TemplatesModuleBlock"]', output_json=True) # 關於認證

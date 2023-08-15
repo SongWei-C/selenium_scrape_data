@@ -370,14 +370,6 @@ class Reptile_Data_Verification:
 
 
 
-
-
-
-
-
-
-
-
 def compare_data():
 
     ta = TeamsAlerter()
@@ -435,7 +427,5 @@ def compare_data():
             print('\n--------------------------------')
 
         ESG_results.append(final_report)
-
-
 
 

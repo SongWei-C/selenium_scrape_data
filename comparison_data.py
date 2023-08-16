@@ -388,23 +388,24 @@ def compare_data():
                 print('url:', log['url'])
                 if not log['table_logging']['verify']:
                     print('\tTable Error')
-                    print('\t-> Error_Message:', log['table_logging']['error_message'])
-                    for error_info in log['table_logging']['error_message']:
-                        error_info = error_info
-                        ta.send_alert_to_teams(message=error_info, val_url=log['url'])
+                    ta.alert_list_to_teams(log['table_logging']['error_message'], val_url=log['url'])
+                    # print('\t-> Error_Message:', log['table_logging']['error_message'])
+                    # for error_info in log['table_logging']['error_message']:
+                    #     error_info = error_info
+                    #     ta.send_alert_to_teams(message=error_info, val_url=log['url'])
                 if not log['content_logging']['verify']:
                     print('\tContent Error')
-                    print('\t-> Error_Message:', log['content_logging']['error_message'])
-                    for error_info in log['content_logging']['error_message']:
-                        time.sleep(5)
-                        error_info = error_info
-                        ta.send_alert_to_teams(message=error_info, val_url=log['url'])
+                    # print('\t-> Error_Message:', log['content_logging']['error_message'])
+                    ta.alert_list_to_teams(log['content_logging']['error_message'], val_url=log['url'])
+                    # for error_info in log['content_logging']['error_message']:
+                    #     time.sleep(5)
+                    #     ta.send_alert_to_teams(message=error_info, val_url=log['url'])
 
                 print()
             print('\n--------------------------------')
 
         about_us_results.append(final_report)
-
+    return
     ESG_files = ['董事會名單', '審計委員會', '內部稽核', '薪酬委員會', '誠信經營']#
     ESG_results = []
     for f in ESG_files:
@@ -418,14 +419,17 @@ def compare_data():
                 if not log['verification']:
                     print('language:', log['language'])
                     print('url:', log['url'])
-
-                    for error_info in log['message']:
-                        print(error_info)
-                        time.sleep(5)
-                        ta.send_alert_to_teams(message=error_info, val_url=log['url'])
+                    ta.alert_list_to_teams(log['message'], val_url=log['url'])
+                    time.sleep(5)
+                    # for error_info in log['message']:
+                    #     print(error_info)
+                        # time.sleep(5)
+                        # ta.send_alert_to_teams(message=error_info, val_url=log['url'])
                 print()
             print('\n--------------------------------')
 
         ESG_results.append(final_report)
 
 
+if __name__ == '__main__':
+    compare_data()

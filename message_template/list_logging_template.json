@@ -1,0 +1,14 @@
+{
+    "type": "message",
+    "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.teams.card.o365connector",
+      "content": {
+        "@type": "MessageCard",
+        "@context": "https://schema.org/extensions",
+        "summary": "Summary",
+        "title": "Connector Card HTML formatting",
+        "sections":{{section_list}}
+      }
+    }]
+}

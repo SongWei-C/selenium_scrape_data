@@ -110,7 +110,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[1]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH,xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH,xpath)))
         no = 1
         Dict_json['url'] = url
         self.soup_get_text(table_element, no, Dict_json)
@@ -122,7 +122,7 @@ class CustomerScraper:
         # table_element = self.driver.find_element('xpath',
         #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[2]/table")
         xpath = "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div/div[2]/table"
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         table_html = table_element.get_attribute('outerHTML')
         df = pd.read_html(table_html)[0]
 
@@ -166,7 +166,7 @@ class CustomerScraper:
 
         wait = WebDriverWait(self.driver, 10)
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         Dict_json['url'] = url
         no = 1
         self.soup_get_text(table_element, no, Dict_json)
@@ -179,7 +179,7 @@ class CustomerScraper:
         xpath = "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div[2]/table"
         # table_element = self.driver.find_element('xpath',
         #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div[2]/table")
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         table_html = table_element.get_attribute('outerHTML')
         df = pd.read_html(table_html)[0]
 
@@ -190,7 +190,7 @@ class CustomerScraper:
         time.sleep(2)
         if (LANGUAGE == 'tw' or LANGUAGE == 'en'):
             xpath = "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p"
-            table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+            table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p")
 
@@ -202,7 +202,7 @@ class CustomerScraper:
         # 定位表格元素
         time.sleep(2)
         xpath = "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[2]/table"
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         # table_element = self.driver.find_element('xpath',
         #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[2]/table")
         table_html = table_element.get_attribute('outerHTML')
@@ -261,7 +261,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[1]/p[1]/span[1]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 1
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -270,7 +270,7 @@ class CustomerScraper:
         # table_element = self.driver.find_element('xpath',
         #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[1]/p[2]")
         xpath = "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[1]/p[2]"
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 2
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -279,7 +279,7 @@ class CustomerScraper:
         # 定位表格元素
         time.sleep(5)
         xpath = "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[2]/table"
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         # table_element = self.driver.find_element('xpath',
         #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[4]/div/div/div/div/div[2]/table")
 
@@ -321,7 +321,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[1]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 1
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -340,7 +340,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[2]/span/span[1]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 2
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -359,7 +359,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[2]/span/span[2]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         self.soup_get_text(table_element, no, Dict_json)
         no = 3
         self.soup_get_text(table_element, no, Dict_json)
@@ -375,7 +375,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[3]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 4
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -390,7 +390,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[4]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 5
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -405,7 +405,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[5]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 6
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -420,7 +420,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[1]/div/p[6]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 7
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -435,7 +435,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[1]/span[1]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 8
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -454,7 +454,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[2]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 9
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -473,7 +473,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[1]/p[4]/span[1]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 10
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -482,7 +482,7 @@ class CustomerScraper:
         # 定位表格元素
         time.sleep(2)
         xpath = "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[2]"
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         # table_element = self.driver.find_element('xpath',
         #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[2]/div[2]")
 
@@ -507,7 +507,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[2]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 11
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -527,7 +527,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     "//*[@id='root_SustainabilityGovernance']/div[2]/div/div[1]/div[5]/div/div/div/div[3]/div/p[3]")
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 12
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -567,7 +567,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 1
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -586,7 +586,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 2
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -605,7 +605,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 3
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -624,7 +624,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 4
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -643,7 +643,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[4]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 5
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -662,7 +662,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[5]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 6
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -681,7 +681,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[6]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 7
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -700,7 +700,7 @@ class CustomerScraper:
             # table_element = self.driver.find_element('xpath',
             #                                     '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[7]')
 
-        table_element = wait.until(EC.visibility_of_element_located(By.XPATH, xpath))
+        table_element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
         no = 8
         self.soup_get_text(table_element, no, Dict_json)
 
@@ -1015,11 +1015,11 @@ class CustomerScraper:
                 if group:
                     element['content'] = []
                     contents = self.driver.find_elements(
-                        By.XPATH, xpath
+                        (By.XPATH, xpath)
                     )
                     for i,content in enumerate(contents):
                         idx_content = content.find_element(
-                            By.XPATH, xpath+'['+str(i+1)+']'
+                            (By.XPATH, xpath)+'['+str(i+1)+']'
                         )
                         print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                         if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '')!= '':
@@ -1029,11 +1029,11 @@ class CustomerScraper:
                 else:
                     text = ''
                     contents = self.driver.find_elements(
-                        By.XPATH, xpath
+                        (By.XPATH, xpath)
                     )
                     for i, content in enumerate(contents):
                         idx_content = content.find_element(
-                            By.XPATH, xpath + '[' + str(i + 1) + ']'
+                            (By.XPATH, xpath) + '[' + str(i + 1) + ']'
                         )
                         print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                         if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '') != '':

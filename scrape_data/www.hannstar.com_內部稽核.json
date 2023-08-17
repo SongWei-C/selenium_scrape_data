@@ -3,7 +3,7 @@
         "內部稽核": {
             "url": "https://www.hannstar.com/tw/sustainability/governance?esgTab=Check",
             "Content1": "內部稽核組織",
-            "Content2": "稽核室為獨立單位，直接隸屬董事會，並配置適任之稽核主管 1 人及稽核人員 3 人。本公司「公司治理實務守則」第三條明訂稽核人員之任免、考評及薪資報酬，除稽核主管之任免依法令規定由審計委員會同意後提報董事會核定外，其餘項目由稽核主管簽報董事長核定。",
+            "Content2": "內部稽核運作",
             "Content3": "內部稽核運作",
             "Content4": "1.稽核室依風險評估結果擬訂次一年度稽核計畫，至少包括「公開發行公司建立內部控制制度處理準則」所列應稽核項目，並提報董事會核定。",
             "Content5": "2.稽核業務項目主要為年度稽核計畫及專案任務稽核，稽核結果檢附工作底稿及相關資料等作成稽核報告，並與受查單位主管充分溝通取得改善計畫及其預計完成日期，稽核人員應追蹤缺失項目至改善完成為止，至少按季作成追蹤報告呈核董事長及交付獨立董事查閱。",
@@ -11,7 +11,7 @@
             "Content7": "4.本公司及子公司每年至少辦理一次內部控制制度自行評估作業，並由稽核室覆核各單位及子公司之自行評估報告，同稽核室所發現之內部控制缺失及異常事項改善情形，以作為董事會及經理人評估整體內部控制制度有效性及出具內部控制制度聲明書之主要依據。",
             "Content8": "獨立董事與內部稽核主管之溝通",
             "Content9": "本公司內部稽核主管定期每年至少四次於董事會及審計委員會議進行稽核業務報告，並單獨與獨立董事溝通稽核報告結果及缺失項目改善情形。 ",
-            "Content10": "獨立董事與內部稽核主管單獨溝通情形摘要(每年至少四次)",
+            "Content10": "獨立董事與內部稽核主管單獨溝通情形摘要(每年至少四次) ",
             "Table1": {
                 "No.1": {
                     "日期": "110/08/06 審計委員會",
@@ -62,7 +62,7 @@
         "內部稽核": {
             "url": "https://www.hannstar.com/cn/sustainability/governance?esgTab=Check",
             "Content1": "内部稽核组织",
-            "Content2": "稽核室为独立单位，直接隶属董事会，并配置适任之稽核主管 1 人及稽核人员 3 人。本公司「公司治理实务守则」第三条明订稽核人员之任免、考评及薪资报酬，除稽核主管之任免依法令规定由审计委员会同意后提报董事会核定外，其余项目由稽核主管签报董事长核定。",
+            "Content2": "内部稽核运作",
             "Content3": "内部稽核运作",
             "Content4": "1.稽核室依风险评估结果拟订次一年度稽核计划，至少包括「公开发行公司建立内部控制制度处理准则」所列应稽核项目，并提报董事会核定。",
             "Content5": "2.稽核业务项目主要为年度稽核计划及项目任务稽核，稽核结果检附工作底稿及相关资料等作成稽核报告，并与受查单位主管充分沟通取得改善计划及其预计完成日期，稽核人员应追踪缺失项目至改善完成为止，至少按季作成追踪报告呈核董事长及交付独立董事查阅。",
@@ -121,7 +121,7 @@
         "內部稽核": {
             "url": "https://www.hannstar.com/en/sustainability/governance?esgTab=Check",
             "Content1": "Internal Audit System",
-            "Content2": "Audit office is an independent organization, which is directly subordinate to the board, with sufficient dedicated internal auditors, including one supervisor and three auditors. According to Article 3 of Corporate Governance Principles, the manning, performance evaluation system, and remuneration of internal auditors shall be submitted by the audit supervisor to Chairman for approval. And the manning of chief internal auditor is approved by the audit committee and answered by the board of directors.",
+            "Content2": "Internal Audit Missions",
             "Content3": "Internal Audit Missions",
             "Content4": "1. The audit office assesses the risks of the whole company and formulates annual audit plans (at lease including the items in  Regulations Governing Establishment of Internal Control Systems by Public Companies), which should be answerable to the board. ",
             "Content5": "2. The annual audit and mission audit should be basically reviewed, including the related attachments and information of results. The audit office should communicate with the directors of the individual unit about improvement suggestions and due date. The audit office is responsible for the implementation of improvement.This information will also serve as a reference for reviews and revisions of the internal control system, which shall also be reported to the board on a quarterly basis. ",

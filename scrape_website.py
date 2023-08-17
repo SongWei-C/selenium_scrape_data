@@ -1015,11 +1015,11 @@ class CustomerScraper:
                 if group:
                     element['content'] = []
                     contents = self.driver.find_elements(
-                        (By.XPATH, xpath)
+                        By.XPATH, xpath
                     )
                     for i,content in enumerate(contents):
                         idx_content = content.find_element(
-                            (By.XPATH, xpath)+'['+str(i+1)+']'
+                            By.XPATH, xpath+'['+str(i+1)+']'
                         )
                         print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                         if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '')!= '':
@@ -1029,11 +1029,11 @@ class CustomerScraper:
                 else:
                     text = ''
                     contents = self.driver.find_elements(
-                        (By.XPATH, xpath)
+                        By.XPATH, xpath
                     )
                     for i, content in enumerate(contents):
                         idx_content = content.find_element(
-                            (By.XPATH, xpath) + '[' + str(i + 1) + ']'
+                            By.XPATH, xpath + '[' + str(i + 1) + ']'
                         )
                         print(str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', ''))
                         if str(idx_content.text).strip().replace('\n', '').replace(' ', '').replace('\x01', '').replace('\t', '').replace('&nbsp;', '') != '':
@@ -1243,3 +1243,5 @@ def scrape_website():
     new_cs.save2json(SAVE_PATH, Dict_json_output_final)
     print("---------------------------------------------------")
 
+if __name__ == '__main__':
+    scrape_website()

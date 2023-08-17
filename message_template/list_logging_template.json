@@ -1,14 +1,102 @@
 {
-    "type": "message",
-    "attachments": [
-    {
-      "contentType": "application/vnd.microsoft.teams.card.o365connector",
-      "content": {
-        "@type": "MessageCard",
-        "@context": "https://schema.org/extensions",
-        "summary": "Summary",
-        "title": "Connector Card HTML formatting",
-        "sections":{{section_list}}
-      }
-    }]
+    "type": "Container",
+    "id": "ecbd0d3d-a3e0-d85c-774d-5f778abb62d1",
+    "padding": "None",
+    "items": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "id": "e3d92d1e-ce95-f70f-d428-a19594bc8fd1",
+                    "padding": "None",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "id": "cf555de9-53b5-26ea-fa83-883162afebf6",
+                            "text": "{{time_stamp}}",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "padding": "None",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "id": "d1594816-c336-77ed-c85a-4a26474f72a9",
+                            "text": "{{warning_category}}",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "padding": "None",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "id": "ab866b41-5e55-07b5-b882-0dfbaa3091ed",
+                            "text": "{{mention_user}}",
+                            "wrap": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "padding": "None",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "id": "{{img_expand}}",
+                            "url": "https://adaptivecards.io/content/down.png",
+                            "size": "Small",
+                            "width": "20px",
+                            "height": "20px"
+                        },
+                        {
+                            "type": "Image",
+                            "id": "{{img_collapse}}",
+                            "url": "https://adaptivecards.io/content/up.png",
+                            "size": "Small",
+                            "isVisible": false,
+                            "width": "20px",
+                            "height": "20px"
+                        }
+                    ],
+                    "selectAction": {
+                        "type": "Action.ToggleVisibility",
+                        "targetElements": [
+                            "{{img_expand}}",
+                            "{{block_detail}}",
+                            "{{img_collapse}}"
+                        ]
+                    }
+                }
+            ],
+            "padding": "None",
+            "spacing": "Small"
+        }
+    ],
+    "style": "default",
+    "separator": true
+},
+{
+    "type": "Container",
+    "id": "{{block_detail}}",
+    "padding": "None",
+    "items": [
+        {
+            "type": "TextBlock",
+            "id": "txt_detail",
+            "text": "{{warning_content}}",
+            "wrap": true
+        }
+    ],
+    "isVisible": false
 }

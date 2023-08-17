@@ -481,10 +481,10 @@ class CustomerScraper:
         time.sleep(2)
         if (LANGUAGE == 'cn'):
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[1]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]')
         elif (LANGUAGE == 'tw'):
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[1]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]')
         else:
             table_element = self.driver.find_element('xpath',
                                                 '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]')
@@ -496,13 +496,13 @@ class CustomerScraper:
         time.sleep(2)
         if (LANGUAGE == 'cn'):
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[2]/span[1]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]')
         elif (LANGUAGE == 'en'):
             table_element = self.driver.find_element('xpath',
                                                 '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]')
         else:
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[2]/span[1]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]')
 
         no = 2
         self.soup_get_text(table_element, no, Dict_json)
@@ -511,13 +511,13 @@ class CustomerScraper:
         time.sleep(2)
         if (LANGUAGE == 'cn'):
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[2]/span[2]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]')
         elif (LANGUAGE == 'en'):
             table_element = self.driver.find_element('xpath',
                                                 '/html/body/div[3]/main/div[3]/div/div/div[2]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[4]')
         else:
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[2]/span[2]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]')
 
         no = 3
         self.soup_get_text(table_element, no, Dict_json)
@@ -529,10 +529,10 @@ class CustomerScraper:
                                                 '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[5]')
         elif (LANGUAGE == 'tw'):
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/span/span[2]/span[3]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[2]/')
         else:
             table_element = self.driver.find_element('xpath',
-                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]/span/span[2]/span[3]')
+                                                '//*[@id="root_SustainabilityGovernance"]/div[2]/div/div[1]/div[5]/div/div/div/div/div/p[3]')
 
         no = 4
         self.soup_get_text(table_element, no, Dict_json)

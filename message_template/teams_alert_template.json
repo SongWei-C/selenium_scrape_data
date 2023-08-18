@@ -1,0 +1,179 @@
+{
+    "type": "message",
+    "attachments": [
+        {
+        "contentType": "application/vnd.microsoft.card.adaptive",
+        "content": {
+            "msteams": {
+                "width": "Full"
+            },
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "Container",
+            "id": "2047201e-195d-7194-0af3-5fcade3b0e4e",
+            "padding": "None",
+            "items": [
+                {
+                    "type": "Container",
+                    "id": "64f1fdca-42d3-bfed-492b-04370d6f0e0a",
+                    "padding": "Small",
+                    "items": [
+                        {
+                            "type": "ColumnSet",
+                            "id": "d0d930ae-fddc-9a3c-5353-37ec33add8ed",
+                            "columns": [
+                                {
+                                    "type": "Column",
+                                    "id": "5c67da0a-1a4a-5845-bed4-5671b6181457",
+                                    "padding": "None",
+                                    "width": "stretch",
+                                    "items": [
+                                        {
+                                            "type": "TextBlock",
+                                            "id": "d1ab81cd-24cd-48cc-592d-7e957a74426c",
+                                            "text": "WARNING: Official Website",
+                                            "wrap": true,
+                                            "size": "Large",
+                                            "weight": "Bolder"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Column",
+                                    "id": "5b8b461b-ec60-6e68-f8ff-4d547a49408f",
+                                    "padding": "None",
+                                    "width": "auto",
+                                    "items": [
+                                        {
+                                            "type": "Image",
+                                            "id": "8ee2a320-670b-ecdb-4c6d-204b52f7cab3",
+                                            "url": "https://adaptivecards.io/content/pending.png",
+                                            "width": "100px",
+                                            "size": "Medium"
+                                        }
+                                    ],
+                                    "style": "default"
+                                }
+                            ],
+                            "padding": "None"
+                        }
+                    ]
+                },
+                {
+                    "type": "ColumnSet",
+                    "id": "aca348ec-d64e-e060-eff0-2de1e5f9137a",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "id": "5037eeca-b1a2-1c5a-d7d3-b09adaa03381",
+                            "padding": "None",
+                            "width": 50,
+                            "style": "emphasis",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "id": "211bd3b7-43d9-019d-99c9-c3e0dac1f2bd",
+                                    "text": "Target URL: [{{val_url}}]({{val_url}})",
+                                    "wrap": true,
+                                    "size": "Medium",
+                                    "isSubtle": true
+                                }
+                            ]
+                        }
+                    ],
+                    "padding": "None"
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "f9647f10-5623-9ab3-1899-c736cb5dd388",
+            "padding": "None",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "id": "786889da-a73f-e497-7d26-05a91ffebb95",
+                    "text": "logging",
+                    "wrap": true,
+                    "weight": "Bolder",
+                    "size": "Medium"
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "dc26d714-2d6f-a597-8b1a-db8ef2d9bacf",
+            "padding": "None",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "id": "8395274f-277e-ef56-4aeb-a55375579366",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "id": "3bc2568e-8b34-cfe8-b61e-d31822a266c8",
+                            "padding": "Small",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "id": "4775fb52-7d6c-d96e-0bd9-c516f93723d7",
+                                    "text": "Date",
+                                    "wrap": true,
+                                    "weight": "Bolder",
+                                    "horizontalAlignment": "Center"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "padding": "Small",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "id": "79f69de1-cd79-c7a6-4b02-86fcc6a3100b",
+                                    "text": "Warning Category",
+                                    "wrap": true,
+                                    "weight": "Bolder",
+                                    "horizontalAlignment": "Center"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "padding": "Small",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "id": "31cf45f6-dad9-d4c7-31c2-71b36e8b58fc",
+                                    "text": "Principal",
+                                    "wrap": true,
+                                    "weight": "Bolder",
+                                    "horizontalAlignment": "Center"
+                                }
+                            ]
+                        }
+                    ],
+                    "padding": "None"
+                }
+            ],
+            "separator": true,
+            "style": "accent"
+        },
+        {{list_logging}}
+        {
+            "type": "Container",
+            "id": "fcacd4e0-0e67-dc75-aa81-c34f026584aa",
+            "padding": "Small",
+            "spacing": "Medium"
+        }
+    ],
+    "padding": "None"
+}
+    }]
+}

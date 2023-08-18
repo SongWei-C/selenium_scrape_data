@@ -16,7 +16,8 @@
                             "type": "TextBlock",
                             "id": "cf555de9-53b5-26ea-fa83-883162afebf6",
                             "text": "{{time_stamp}}",
-                            "wrap": true
+                            "wrap": true,
+                            "horizontalAlignment": "Center"
                         }
                     ]
                 },
@@ -29,20 +30,22 @@
                             "type": "TextBlock",
                             "id": "d1594816-c336-77ed-c85a-4a26474f72a9",
                             "text": "{{warning_category}}",
-                            "wrap": true
+                            "wrap": true,
+                            "horizontalAlignment": "Center"
                         }
                     ]
                 },
                 {
                     "type": "Column",
                     "padding": "None",
-                    "width": "stretch",
+                    "width": "auto",
                     "items": [
                         {
                             "type": "TextBlock",
                             "id": "ab866b41-5e55-07b5-b882-0dfbaa3091ed",
                             "text": "{{mention_user}}",
-                            "wrap": true
+                            "wrap": true,
+                            "horizontalAlignment": "Center"
                         }
                     ]
                 },
@@ -53,7 +56,7 @@
                     "items": [
                         {
                             "type": "Image",
-                            "id": "{{img_expand}}",
+                            "id": "{{img_expand_id}}",
                             "url": "https://adaptivecards.io/content/down.png",
                             "size": "Small",
                             "width": "20px",
@@ -61,7 +64,7 @@
                         },
                         {
                             "type": "Image",
-                            "id": "{{img_collapse}}",
+                            "id": "{{img_collapse_id}}",
                             "url": "https://adaptivecards.io/content/up.png",
                             "size": "Small",
                             "isVisible": false,
@@ -72,9 +75,9 @@
                     "selectAction": {
                         "type": "Action.ToggleVisibility",
                         "targetElements": [
-                            "{{img_expand}}",
-                            "{{block_detail}}",
-                            "{{img_collapse}}"
+                            "{{img_expand_id}}",
+                            "{{block_detail_id}}",
+                            "{{img_collapse_id}}"
                         ]
                     }
                 }
@@ -88,7 +91,7 @@
 },
 {
     "type": "Container",
-    "id": "{{block_detail}}",
+    "id": "{{block_detail_id}}",
     "padding": "None",
     "items": [
         {
@@ -98,5 +101,6 @@
             "wrap": true
         }
     ],
+    "style": "emphasis",
     "isVisible": false
-}
+},

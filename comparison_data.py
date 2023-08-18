@@ -50,7 +50,7 @@ class Data_Verification:
                 temp_log['table_logging']['error_message'] = []
 
                 if std_lang_obj['table'] == None and verify_lang_obj['table'] != None:
-                    message = '[The number of Table is different]:\nStandard Sample('+std_lang_obj['url']+') not find any table.'
+                    message = '[The number of Table is different]:\nStandard Sample not find any table.'
                     temp_log['table_logging']['error_message'].append(message)
                 elif std_lang_obj['table'] != None and verify_lang_obj['table'] == None:
                     message = '[The number of Table is different]:\nValidation Data(' + verify_lang_obj['url'] + ') not find any table.'
@@ -58,7 +58,7 @@ class Data_Verification:
                 else: # 檢查彼此表格 1.表格數量 2.table head 3. table body
                     if len(std_lang_obj['table']) != len(verify_lang_obj['table']):
                         message = '[The number of Table is different]:'+str(len(std_lang_obj['table'])) + \
-                                  'tables found in Standard sample('+std_lang_obj['url'] + ')but\n '+ \
+                                  'tables found in Standard sample\n but '+ \
                             str(len(verify_lang_obj['table'])) + 'tables found in Validation Data(' + verify_lang_obj['url'] + ')'
                         temp_log['table_logging']['error_message'].append(message)
 
@@ -68,8 +68,7 @@ class Data_Verification:
                             val_table = verify_lang_obj['table'][i]
                             # 檢查table head row數量
                             if std_table['thead'] == None and val_table['thead'] != None:
-                                message = '[The number of Table head rows is different]:\nIn'+ str(i)+'Table in Standard Sample(' + std_lang_obj[
-                                    'url'] + ') not find any table head row.'
+                                message = '[The number of Table head rows is different]:\nIn'+ str(i)+'Table in Standard Sample not find any table head row.'
                                 temp_log['table_logging']['error_message'].append(message)
                             elif std_table['thead'] != None and val_table == None:
                                 message = '[The number of Table head rows is different]:\nIn'+ str(i)+'Table in Validation Data(' + verify_lang_obj[
@@ -78,7 +77,7 @@ class Data_Verification:
                             elif std_table['thead'] != None and val_table['thead'] != None:  # 檢查彼此表格 1.表格數量 2.table head 3. table body
                                 if len(std_table['thead']) != len(val_table['thead']):
                                     message = '[The number of Table head rows is different]:\nIn'+ str(i)+'Table ' + str(len(std_table['thead'])) + \
-                                              'table head rows found in '+ str(i) +'Table in Standard sample(' + std_lang_obj['url'] + ')but\n ' + \
+                                              'table head rows found in '+ str(i) +'Table in Standard\nbut ' + \
                                               str(len(val_table['thead'])) + 'table head rows found in '+ str(i) +'Table in Validation Data(' + \
                                               verify_lang_obj['url'] + ')'
                                     temp_log['table_logging']['error_message'].append(message)
@@ -88,17 +87,16 @@ class Data_Verification:
                                         val_row_th = val_table['thead'][j]['th']
 
                                         if std_row_th == None and val_row_th != None:
-                                            message = '[The number of thead <th> is different]:\nIn'+ str(i)+'Table '+ str(j) +'Thead Row in Standard Sample(' + \
-                                                      std_lang_obj['url'] + ') not find any table head <th>.'
+                                            message = '[The number of thead <th> is different]:\nIn'+ str(i)+'Table '+ str(j) +'Thead_Row in Standard Sample not find any table head <th>.'
                                             temp_log['table_logging']['error_message'].append(message)
                                         elif std_row_th != None and val_row_th == None:
-                                            message = '[The number of thead <th> is different]:\nIn'+ str(i)+'Table '+ str(j) +'Thead Row in Validation Data(' + \
+                                            message = '[The number of thead <th> is different]:\nIn'+ str(i)+'Table '+ str(j) +'Thead_Row in Validation Data(' + \
                                                       verify_lang_obj['url'] + ') not find any table head <th>.'
                                             temp_log['table_logging']['error_message'].append(message)
                                         elif std_row_th != None and val_row_th != None:
                                             if len(std_row_th) != len(val_row_th):
-                                                message = '[The number of thead <th> is different]:\nIn'+ str(i)+'Table ' + str(j) + 'Thead Row\n ->' +\
-                                                          'Standard sample(' + std_lang_obj['url'] + ') find'+ str(len(std_row_th)) + ' <th>, \n ->' + \
+                                                message = '[The number of thead <th> is different]:\nIn'+ str(i)+'Table ' + str(j) + 'Thead_Row\n ->' +\
+                                                          'Standard sample find'+ str(len(std_row_th)) + ' <th>, \n ->' + \
                                                           'Validation Data(' + verify_lang_obj['url'] + ') find' + str(len(val_row_th)) + ' <th>'
                                                 temp_log['table_logging']['error_message'].append(message)
                                             else:  # 檢查th元素
@@ -110,8 +108,8 @@ class Data_Verification:
                                                         continue
                                                     else:
                                                         message = '[Table Content different]:\nIn '+ str(i)+'Table ' \
-                                                                  + str(j) + 'Thead Row ' + str(k)+'<th> ->\n' \
-                                                                  + 'Standard sample(' + std_lang_obj['url'] + '): '\
+                                                                  + str(j) + 'Thead_Row ' + str(k)+'<th>\n' \
+                                                                  + 'Standard sample : '\
                                                                   + std_th_ele +'\n'\
                                                                   + 'Validation Data(' + verify_lang_obj['url'] + '): '\
                                                                   + val_th_ele + ''
@@ -121,20 +119,18 @@ class Data_Verification:
                             #----------------------------------------------------------------------------------------------
                             # 檢查table body row數量
                             if std_table['tbody'] == None and val_table['tbody'] != None:
-                                message = '[The number of Table body rows is different]:\nStandard Sample(' + \
-                                          std_lang_obj['url'] + ') not find any table body row.'
+                                message = '[The number of Table body rows are different]:\nStandard Sample not find any table body row.'
                                 temp_log['table_logging']['error_message'].append(message)
                             elif std_table['tbody'] != None and val_table['tbody'] == None:
-                                message = '[The number of Table body rows is different]:\nValidation Data(' + \
+                                message = '[The number of Table body rows are different]:\nValidation Data(' + \
                                           verify_lang_obj[
                                               'url'] + ') not find any table body row.'
                                 temp_log['table_logging']['error_message'].append(message)
                             elif std_table['tbody'] != None and val_table['tbody'] != None:
                                 if len(std_table['tbody']) != len(val_table['tbody']):
-                                    message = '[The number of Table body rows is different]:\n' + str(
+                                    message = '[The number of Table body rows are different]:\n' + str(
                                         len(std_table['tbody'])) + 'table body rows found in '+ str(i) +\
-                                              'Table in Standard sample(' + std_lang_obj['url'] +\
-                                              ')but\n ' + str(len(val_table['tbody'])) + 'table body rows found in '+\
+                                              'Table in Standard sample\nbut ' + str(len(val_table['tbody'])) + 'table body rows found in '+\
                                               str(i) +'Table in  Validation Data(' + verify_lang_obj['url'] + ')'
                                     temp_log['table_logging']['error_message'].append(message)
                                 else: # 檢查每個row元素
@@ -147,19 +143,18 @@ class Data_Verification:
                                         # 檢查th list
                                         if std_row_th == None and val_row_th != None:
                                             message = '[The number of tbody <th> is different]:\nIn' + str(
-                                                i) + 'Table '+ str(j) +'Tbody Row in Standard Sample(' + \
-                                                      std_lang_obj['url'] + ') not find any table body <th>.'
+                                                i) + 'Table '+ str(j) +'Tbody_Row in Standard Sample not find any table body <th>.'
                                             temp_log['table_logging']['error_message'].append(message)
                                         elif std_row_th != None and val_row_th == None:
                                             message = '[The number of tbody <th> is different]:\nIn' + str(
-                                                i) + 'Table '+ str(j) +'Tbody Row in Validation Data(' + \
+                                                i) + 'Table '+ str(j) +'Tbody_Row in Validation Data(' + \
                                                       verify_lang_obj['url'] + ') not find any table body <th>.'
                                             temp_log['table_logging']['error_message'].append(message)
                                         elif std_row_th != None and val_row_th != None:
                                             if len(std_row_th) != len(val_row_th):
                                                 message = '[The number of tbody <th> is different]:\nIn' + str(
-                                                    i) + 'Table ' + str(j) + 'Tbody Row\n ->' + \
-                                                          'Standard sample(' + std_lang_obj['url'] + ') find' + str(
+                                                    i) + 'Table ' + str(j) + 'Tbody_Row\n ->' + \
+                                                          'Standard sample find' + str(
                                                     len(std_row_th)) + ' <th>, \n ->' + \
                                                           'Validation Data(' + verify_lang_obj['url'] + ') find' + str(
                                                     len(val_row_th)) + ' <th>'
@@ -173,8 +168,8 @@ class Data_Verification:
                                                         continue
                                                     else:
                                                         message = '[Table Content different]:\nIn ' + str(i) + 'Table ' \
-                                                                  + str(j) + 'Tbody Row ' + str(k) + '<th> ->\n' \
-                                                                  + 'Standard sample(' + std_lang_obj['url'] + '): ' \
+                                                                  + str(j) + 'Tbody_Row ' + str(k) + '<th> ->\n' \
+                                                                  + 'Standard sample: ' \
                                                                   + std_th_ele + '\n' \
                                                                   + 'Validation Data(' + verify_lang_obj['url'] + '): ' \
                                                                   + val_th_ele + ''
@@ -184,23 +179,20 @@ class Data_Verification:
                                         if std_row_td == None and val_row_td != None:
                                             message = '[The number of tbody <td> is different]:\nIn' + str(
                                                 i) + 'Table ' + str(
-                                                j) + 'Tbody Row in Standard Sample(' + \
-                                                      std_lang_obj[
-                                                          'url'] + ') not find any table body <th>.'
+                                                j) + 'Tbody_Row in Standard Sample not find any table body <th>.'
                                             temp_log['table_logging']['error_message'].append(message)
                                         elif std_row_td != None and val_row_td == None:
                                             message = '[The number of tbody <td> is different]:\nIn' + str(
                                                 i) + 'Table ' + str(
-                                                j) + 'Tbody Row in Validation Data(' + \
+                                                j) + 'Tbody_Row in Validation Data(' + \
                                                       verify_lang_obj[
                                                           'url'] + ') not find any table body <th>.'
                                             temp_log['table_logging']['error_message'].append(message)
                                         elif std_row_td != None and val_row_td != None:
                                             if len(std_row_td) != len(val_row_td):
                                                 message = '[The number of tbody <td> is different]:\nIn' + str(
-                                                    i) + 'Table ' + str(j) + 'Tbody Row\n ->' + \
-                                                          'Standard sample(' + std_lang_obj[
-                                                              'url'] + ') find' + str(
+                                                    i) + 'Table ' + str(j) + 'Tbody_Row\n ->' + \
+                                                          'Standard sample find' + str(
                                                     len(std_row_td)) + ' <td>, \n ->' + \
                                                           'Validation Data(' + verify_lang_obj[
                                                               'url'] + ') find' + str(
@@ -217,10 +209,9 @@ class Data_Verification:
                                                     else:
                                                         message = '[Table Content different]:\nIn ' + str(
                                                             i) + 'Table ' \
-                                                                  + str(j) + 'Tbody Row ' + str(
+                                                                  + str(j) + 'Tbody_Row ' + str(
                                                             k) + '<td> ->\n' \
-                                                                  + 'Standard sample(' + std_lang_obj[
-                                                                      'url'] + '): "' \
+                                                                  + 'Standard sample: "' \
                                                                   + std_td_ele + '"\n' \
                                                                   + 'Validation Data(' + \
                                                                   verify_lang_obj['url'] + '): "' \
@@ -239,7 +230,7 @@ class Data_Verification:
                 temp_log['content_logging']['verify'] = False
                 temp_log['content_logging']['error_message'] = []
 
-                message = '[Content different]:\nStandard sample('+std_lang_obj['url']+'):\n'+ str(std_lang_obj['content']) \
+                message = '[Content different]:\nStandard sample:\n'+ str(std_lang_obj['content']) \
                             + '\n\nValidation Data(' + verify_lang_obj['url'] +'):\n' + str(verify_lang_obj['content'])
                 temp_log['content_logging']['error_message'].append(message)
                 # print('content!')

@@ -23,7 +23,8 @@ class TeamsAlerter:
         agent_url = 'https://hannstar.webhook.office.com/webhookb2/d04a9a4a-d535-4fc3-ab6a-0e8a69247128@4385aed4-a143-4812-8d76-480d22a7505f/IncomingWebhook/befa9ff10e25469fb67d1777aa8ddf5b/ac26c2d0-4ca1-4338-bf22-31bfad7cd462'
         json_body = self.json_template
 
-        message = message.replace('<', '\\\<').replace('>', '\\\>').replace('\n', '<br />').replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;').replace(',', '\\\,').replace('"', '\\\"')
+        message = message.replace('<', '\\\<').replace('>', '\\\>').replace('\n', '<br />')\
+            .replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;').replace(',', '\\\,').replace('"', '\\\\"')
         json_body = json_body.replace('{{website_url}}', val_url)
         json_body = json_body.replace('{{message}}', message)
         print('---------------------------------------------------')
@@ -40,11 +41,12 @@ class TeamsAlerter:
 
     def alert_list_to_teams(self, message_list:list[str], val_url:str=''):
         agent_url = 'https://hannstar.webhook.office.com/webhookb2/d04a9a4a-d535-4fc3-ab6a-0e8a69247128@4385aed4-a143-4812-8d76-480d22a7505f/IncomingWebhook/befa9ff10e25469fb67d1777aa8ddf5b/ac26c2d0-4ca1-4338-bf22-31bfad7cd462'
+        json_body = self.message_json_template
 
         logging_list_str = ''
         for i,message in enumerate(message_list):
             template = self.list_json_template
-            message = message.replace('<', '\\\<').replace('>', '\\\>').replace('\n', '\n\n')\
+            message = message.replace('<', '\\\<').replace('>', '\\\>').replace('\n', '\\n\\n')\
                 .replace('\t','&nbsp;&nbsp;&nbsp;&nbsp;').replace(',', '\\\,').replace('"', '\\\"')
 
             template = template.replace('{{img_expand_id}}', 'img_expand_'+str(i))
@@ -52,25 +54,28 @@ class TeamsAlerter:
             template = template.replace('{{img_collapse_id}}', 'img_collapse_' + str(i))
 
 
-            e_category = '**\\<' + message.split(']:')[0][1:] + '\\>**'
+            e_category = '*\\\[#'+ str(i) +']<' + message.split(']:')[0][1:] + '\\\>*'
             logging = message.split(']:')[1]
 
             template = template.replace('{{warning_content}}', logging)
             template = template.replace('{{warning_category}}', e_category)
-            template = template.replace('{{warning_category}}', e_category)
-
+            template = template.replace('{{time_stamp}}', "2023-08-18")
+            template = template.replace('{{mention_user}}', "")
+            logging_list_str += template +'\n'
             print(e_category)
             print(logging)
 
         print('---------------------------------------------------')
+        json_body = json_body.replace('{{val_url}}', val_url).replace("{{list_logging}}", logging_list_str)
 
         json_headers = {
             'Content-Type': 'application/json',
         }
 
-        section_json = json.dumps(section, indent=4)
-        json_body = json_body.replace('{{section_list}}', section_json)
-        print(json_body)
+        with open('./test.json', 'w', encoding='utf-8') as f:
+            f.write(json_body)
+        # section_json = json.dumps(json_body, indent=4)
+        # print(json_body)
         response = self.sendPOSTreq(headers=json_headers, data=json_body.encode(), url=agent_url)
         print(response)
         print(response.content)

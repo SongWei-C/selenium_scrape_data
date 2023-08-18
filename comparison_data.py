@@ -388,9 +388,7 @@ def compare_data():
                     print('\tContent Error')
                     # print('\t-> Error_Message:', log['content_logging']['error_message'])
                     ta.alert_list_to_teams(log['content_logging']['error_message'], val_url=log['url'])
-                    # for error_info in log['content_logging']['error_message']:
-                    #     time.sleep(5)
-                    #     ta.send_alert_to_teams(message=error_info, val_url=log['url'])
+                    time.sleep(5)
 
                 print()
             print('\n--------------------------------')

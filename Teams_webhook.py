@@ -1,6 +1,7 @@
 import requests
 import pandas
 import json
+import datetime
 
 class TeamsAlerter:
     def __init__(self):
@@ -57,9 +58,11 @@ class TeamsAlerter:
             e_category = '*\\\[#'+ str(i) +']<' + message.split(']:')[0][1:] + '\\\>*'
             logging = message.split(']:')[1]
 
+            today_datetime = datetime.datetime.today()
+
             template = template.replace('{{warning_content}}', logging)
             template = template.replace('{{warning_category}}', e_category)
-            template = template.replace('{{time_stamp}}', "2023-08-18")
+            template = template.replace('{{time_stamp}}', today_datetime.isoformat())
             template = template.replace('{{mention_user}}', "")
             logging_list_str += template +'\n'
             print(e_category)
